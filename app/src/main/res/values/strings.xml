@@ -1,7 +1,20 @@
 <resources>
-    <string name="app_name">Service Novigrad</string>
-    <string name="Login">Login</string>
-    <string name="Email">Email</string>
-    <string name="Password">Password</string>
-    <string name="Register">Register</string>
+    <string name="app_name">Novigrad</string>
+    <string name="title_activity_register">Register</string>
+    <string name="bienvenue_service_novigrad">Bienvenue à Service Novigrad</string>
+    <string name="votre_email_personnel">Votre email personnel</string>
+    <string name="votre_mot_de_passe">Votre mot de passe</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="confirmer_votre_mot_de_passe">Confirmer votre mot de passe</string>
+    <string name="choisir_votre_mot_de_passe">Choisir votre mot de passe</string>
+    <string name="nom">Nom</string>
+    <string name="cr_er_ce_compte_comme">Créer ce compte comme</string>
+    <string name="prenoms">Prénoms</string>
+    <string name="creer_un_compte">Créer un compte</string>
+    <string name="pas_encore_de_compte">Pas encore de compte?</string>
+    <string name="se_deconnecter">Se déconnecter</string>
+    <string-array name="roles">
+        <item>Employé</item>
+        <item>Client</item>
+    </string-array>
 </resources>
