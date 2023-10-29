@@ -1,4 +1,4 @@
-package com.example.novigrad;
+package com.example.servicenovigrad;
 
 public class User {
     String firstName, lastName, email, password, role;
