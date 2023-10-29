@@ -1,4 +1,4 @@
-package com.example.novigrad;
+package com.example.servicenovigrad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

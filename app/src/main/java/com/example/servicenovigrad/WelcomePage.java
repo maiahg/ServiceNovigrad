@@ -1,4 +1,4 @@
-package com.example.novigrad;
+package com.example.servicenovigrad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,6 +38,6 @@ public class WelcomePage extends AppCompatActivity {
                 Toast.makeText(WelcomePage.this, "Déconnexion réussie", Toast.LENGTH_SHORT).show();
             }
         });
-        }
-
     }
+
+}

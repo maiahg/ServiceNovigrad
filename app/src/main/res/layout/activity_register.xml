@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register">
-
     <EditText
         android:id="@+id/passwordTxt"
         android:layout_width="270dp"
@@ -20,8 +19,8 @@
 
     <Spinner
         android:id="@+id/rolePicker"
-        android:layout_width="141dp"
-        android:layout_height="46dp"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:entries="@array/roles"
         app:layout_constraintEnd_toEndOf="@+id/roleTxt"
@@ -134,5 +133,4 @@
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toEndOf="@+id/haveAnAccount"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
