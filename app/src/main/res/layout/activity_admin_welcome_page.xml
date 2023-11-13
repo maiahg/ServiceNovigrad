@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminWelcomePage">
+
+    <Button
+        android:id="@+id/signoutA"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/se_deconnecter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/accountsBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/accountsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/accountsBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/adminTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vous êtes connecté en tant que Admin"
+        app:layout_constraintEnd_toEndOf="@+id/welcomeAdmin"
+        app:layout_constraintStart_toStartOf="@+id/welcomeAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeAdmin" />
+
+    <TextView
+        android:id="@+id/welcomeAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenue_admin"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/servicesBtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="Gérer les services"
+        app:layout_constraintEnd_toEndOf="@+id/adminTxt"
+        app:layout_constraintStart_toStartOf="@+id/adminTxt"
+        app:layout_constraintTop_toBottomOf="@+id/adminTxt" />
+
+    <Button
+        android:id="@+id/accountsBtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Gérer les comptes"
+        app:layout_constraintEnd_toEndOf="@+id/servicesBtn"
+        app:layout_constraintStart_toStartOf="@+id/servicesBtn"
+        app:layout_constraintTop_toBottomOf="@+id/servicesBtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

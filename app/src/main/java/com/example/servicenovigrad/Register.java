@@ -21,13 +21,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
-    EditText editFirstName, editLastName, editEmail, editPassword;
-    String firstNameString, lastNameString, emailString, passwordString, role;
-    Spinner rolePicker;
-    Button registerBtn;
-    TextView textView;
-    FirebaseDatabase dataBase;
-    DatabaseReference reference;
+    private EditText editFirstName, editLastName, editEmail, editPassword;
+    private String firstNameString, lastNameString, emailString, passwordString, role;
+    private Spinner rolePicker;
+    private Button registerBtn;
+    private TextView textView;
+    private FirebaseDatabase dataBase;
+    private DatabaseReference reference;
+    private User user;
 
 
     @Override
@@ -86,8 +87,20 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                User userClass = new User(firstNameString, lastNameString, emailString, passwordString, role);
-                reference.child(firstNameString).setValue(userClass);
+               switch(role) {
+                   case "Client":
+                       user = new Client(firstNameString, lastNameString, emailString, passwordString);
+                       break;
+
+                   case "Employé":
+                       user = new Employee(firstNameString, lastNameString, emailString, passwordString);
+                       break;
+               }
+
+                DatabaseReference newNode = reference.push();
+                String nodeKey = newNode.getKey();
+                user.setDataBaseID(nodeKey);
+                newNode.setValue(user);
 
                 Toast.makeText(Register.this, "Compte créé avec succès", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Register.this, Login.class);

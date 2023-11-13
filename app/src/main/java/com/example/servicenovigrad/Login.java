@@ -18,14 +18,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 
 public class Login extends AppCompatActivity {
-    EditText editEmail, editPassword;
-    String emailString, passwordString;
-    Button btnLogin;
-    TextView textView;
+    private EditText editEmail, editPassword;
+    private String emailString, passwordString;
+    private Button btnLogin;
+    private TextView textView;
 
 
     @Override
@@ -65,7 +63,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void checkUser() {
+    private void checkUser() {
         String email = editEmail.getText().toString();
         String password = editPassword.getText().toString();
 
@@ -80,10 +78,23 @@ public class Login extends AppCompatActivity {
                         User user = userSample.getValue(User.class);
 
                         if (user.getPassword().equals(password)) {
-                            Intent intent = new Intent(Login.this, WelcomePage.class);
-                            intent.putExtra("firstName",user.getFirstName());
-                            intent.putExtra("role", user.getRole());
-                            startActivity(intent);
+                            switch(user.getRole()) {
+                                case "Admin":
+                                    Intent intentA = new Intent(Login.this, AdminWelcomePage.class);
+                                    startActivity(intentA);
+                                    break;
+
+                                case "Client":
+                                    Intent intentC = new Intent(Login.this, ClientWelcomePage.class);
+                                    intentC.putExtra("firstName", user.getFirstName());
+                                    startActivity(intentC);
+                                    break;
+
+                                case "Employé":
+                                    Intent intentE = new Intent(Login.this, EmployeeWelcomePage.class);
+                                    intentE.putExtra("firstName", user.getFirstName());
+                                    startActivity(intentE);
+                            }
                         } else {
                             Toast.makeText(Login.this, "Mot de passe incorrect", Toast.LENGTH_SHORT).show();
                         }
@@ -95,7 +106,6 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }

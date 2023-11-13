@@ -15,6 +15,21 @@
         android:theme="@style/Theme.ServiceNovigrad"
         tools:targetApi="31">
         <activity
+            android:name=".ManageAccounts"
+            android:exported="false" />
+        <activity
+            android:name=".ManageServices"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeeWelcomePage"
+            android:exported="false" />
+        <activity
+            android:name=".ClientWelcomePage"
+            android:exported="false" />
+        <activity
+            android:name=".AdminWelcomePage"
+            android:exported="false" />
+        <activity
             android:name=".WelcomePage"
             android:exported="false" />
         <activity

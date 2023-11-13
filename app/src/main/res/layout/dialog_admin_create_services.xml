@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/createTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Créer une service"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addServiceName"
+        android:layout_width="213dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Nom du service"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createTxt" />
+
+    <CheckBox
+        android:id="@+id/prenameBox"
+        android:layout_width="133dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="Prénom"
+        app:layout_constraintStart_toStartOf="@+id/createRequiredInfo"
+        app:layout_constraintTop_toBottomOf="@+id/createRequiredInfo" />
+
+    <TextView
+        android:id="@+id/createRequiredInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Les infomations requis"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/addServiceName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/addServiceName"
+        app:layout_constraintTop_toBottomOf="@+id/addServiceName" />
+
+    <CheckBox
+        android:id="@+id/nameBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toEndOf="@+id/prenameBox"
+        app:layout_constraintTop_toBottomOf="@+id/createRequiredInfo" />
+
+    <CheckBox
+        android:id="@+id/dobBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de naissance"
+        app:layout_constraintEnd_toEndOf="@+id/prenameBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/prenameBox"
+        app:layout_constraintTop_toBottomOf="@+id/prenameBox" />
+
+    <CheckBox
+        android:id="@+id/addressBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adresse du client"
+        app:layout_constraintEnd_toEndOf="@+id/dobBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dobBox"
+        app:layout_constraintTop_toBottomOf="@+id/dobBox" />
+
+    <CheckBox
+        android:id="@+id/permitBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type de permis"
+        app:layout_constraintEnd_toEndOf="@+id/addressBox"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/addressBox"
+        app:layout_constraintTop_toBottomOf="@+id/addressBox" />
+
+    <TextView
+        android:id="@+id/createRequiredDoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Les documents requis"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/permitBox"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="@+id/permitBox"
+        app:layout_constraintTop_toBottomOf="@+id/permitBox" />
+
+    <CheckBox
+        android:id="@+id/residenceBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Preuve de domicile"
+        app:layout_constraintEnd_toEndOf="@+id/createRequiredDoc"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/createRequiredDoc"
+        app:layout_constraintTop_toBottomOf="@+id/createRequiredDoc" />
+
+    <CheckBox
+        android:id="@+id/statusBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preuve de statut"
+        app:layout_constraintEnd_toEndOf="@+id/residenceBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/residenceBox"
+        app:layout_constraintTop_toBottomOf="@+id/residenceBox" />
+
+    <CheckBox
+        android:id="@+id/photoBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo du client"
+        app:layout_constraintEnd_toEndOf="@+id/statusBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/statusBox"
+        app:layout_constraintTop_toBottomOf="@+id/statusBox" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Créer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoBox"
+        app:layout_constraintVertical_bias="0.14" />
+</androidx.constraintlayout.widget.ConstraintLayout>

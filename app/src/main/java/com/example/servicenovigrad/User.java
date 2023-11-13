@@ -1,7 +1,7 @@
 package com.example.servicenovigrad;
 
 public class User {
-    String firstName, lastName, email, password, role;
+    protected String firstName, lastName, email, password, role, dataBaseID;
 
     public User() {}
     public User(String firstName, String lastName, String email, String password, String role) {
@@ -51,4 +51,8 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public String getDataBaseID() { return this.dataBaseID; }
+
+    public void setDataBaseID(String dataBaseID) {this.dataBaseID = dataBaseID;}
 }
