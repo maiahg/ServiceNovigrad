@@ -27,12 +27,12 @@ import java.util.ArrayList;
 
 
 public class ManageServices extends AppCompatActivity {
-    FirebaseDatabase database;
-    DatabaseReference reference;
-    ListView servicesListView;
-    ArrayList<Service> services;
-    Button createBtn;
-    ImageButton homeBtn;
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
+    private ListView servicesListView;
+    private ArrayList<Service> services;
+    private Button createBtn;
+    private ImageButton homeBtn;
 
 
     @Override
