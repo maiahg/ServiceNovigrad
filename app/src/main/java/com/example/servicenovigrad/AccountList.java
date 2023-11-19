@@ -13,7 +13,7 @@ public class AccountList extends ArrayAdapter<User> {
     private Activity context;
     List<User> users;
 
-    public AccountList(Activity context, List<User> users) {
+    AccountList(Activity context, List<User> users) {
         super(context, R.layout.account_list_layout, users);
         this.context = context;
         this.users = users;

@@ -3,8 +3,8 @@ package com.example.servicenovigrad;
 public class User {
     protected String firstName, lastName, email, password, role, dataBaseID;
 
-    public User() {}
-    public User(String firstName, String lastName, String email, String password, String role) {
+    User() {}
+    User(String firstName, String lastName, String email, String password, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

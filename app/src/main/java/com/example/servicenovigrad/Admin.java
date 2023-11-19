@@ -8,7 +8,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.Serializable;
 
 public class Admin extends User implements Serializable {
-    public Admin() {
+    Admin() {
         super("Admin", "Admin", "admin@gmail.com", "123admin456", "Admin" );
     }
 

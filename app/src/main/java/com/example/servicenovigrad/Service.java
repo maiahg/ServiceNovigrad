@@ -3,12 +3,12 @@ package com.example.servicenovigrad;
 import android.widget.CheckBox;
 
 public class Service {
-    String serviceName;
+    private String serviceName;
     boolean preName, name, dateOfBirth,  address,  typeOfPermit,  proofOfResidence,  proofOfStatus, photo;
 
     public Service() {}
 
-    public Service(String serviceName, boolean preName, boolean name, boolean dateOfBirth, boolean address, boolean typeOfPermit, boolean proofOfResidence, boolean proofOfStatus, boolean photo) {
+    Service(String serviceName, boolean preName, boolean name, boolean dateOfBirth, boolean address, boolean typeOfPermit, boolean proofOfResidence, boolean proofOfStatus, boolean photo) {
         this.serviceName = serviceName;
         this.preName = preName;
         this.name = name;
