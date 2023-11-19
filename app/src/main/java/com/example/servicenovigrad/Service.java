@@ -1,7 +1,5 @@
 package com.example.servicenovigrad;
 
-import android.widget.CheckBox;
-
 public class Service {
     private String serviceName;
     boolean preName, name, dateOfBirth,  address,  typeOfPermit,  proofOfResidence,  proofOfStatus, photo;
