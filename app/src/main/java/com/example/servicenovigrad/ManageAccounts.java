@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,11 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ManageAccounts extends AppCompatActivity {
-    ListView accountsListView;
-    ArrayList<User> userList;
-    FirebaseDatabase database;
-    DatabaseReference reference;
-
+    private ListView accountsListView;
+    private ArrayList<User> userList;
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
+    private ImageButton homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,22 @@ public class ManageAccounts extends AppCompatActivity {
         userList = new ArrayList<>();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("users");
+        homeBtn = findViewById(R.id.homeABtn);
 
     accountsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             User users = userList.get(i);
             deleteAccount(users);
+        }
+    });
+
+    homeBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(ManageAccounts.this, AdminWelcomePage.class);
+            startActivity(intent);
+            finish();
         }
     });
     }

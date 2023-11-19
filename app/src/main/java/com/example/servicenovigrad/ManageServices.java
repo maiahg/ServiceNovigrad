@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ public class ManageServices extends AppCompatActivity {
     ListView servicesListView;
     ArrayList<Service> services;
     Button createBtn;
+    ImageButton homeBtn;
 
 
     @Override
@@ -44,6 +47,7 @@ public class ManageServices extends AppCompatActivity {
         services = new ArrayList<>();
 
         createBtn = findViewById(R.id.createBtn);
+        homeBtn = findViewById(R.id.homeSBtn);
 
         servicesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,6 +62,15 @@ public class ManageServices extends AppCompatActivity {
            public void onClick(View view) {
                addService();
            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManageServices.this, AdminWelcomePage.class);
+                startActivity(intent);
+                finish();
+            }
         });
     }
 
