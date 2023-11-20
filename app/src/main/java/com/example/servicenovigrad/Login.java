@@ -45,7 +45,6 @@ public class Login extends AppCompatActivity {
                 // Empty error
                 if (emailString.isEmpty() || passwordString.isEmpty() ) {
                     Toast.makeText(Login.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
-                    return;
                 } else {
                     checkUser();
                 }

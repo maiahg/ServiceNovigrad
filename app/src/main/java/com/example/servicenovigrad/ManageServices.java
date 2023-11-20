@@ -207,7 +207,7 @@ public class ManageServices extends AppCompatActivity {
         dialogBuilder.setView(dialogView);
 
         Admin admin = new Admin();
-        Button create = dialogView.findViewById(R.id.update);
+        Button create = dialogView.findViewById(R.id.createService);
         EditText serviceNameEdt = dialogView.findViewById(R.id.addServiceName);
         CheckBox prenameBox = dialogView.findViewById(R.id.prenameBox);
         CheckBox nameBox = dialogView.findViewById(R.id.nameBox);
