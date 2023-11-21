@@ -1,14 +1,168 @@
 package com.example.servicenovigrad;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BranchHomePage extends AppCompatActivity {
-
+    private Button modifyProfileBtn, modifyServiceBtn, modifyHoursBtn, viewRequestsBtn, logOutBtn;
+    private DatabaseReference reference;
+    private String branchUserName, branchPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branch_home_page);
+
+        modifyProfileBtn = findViewById(R.id.modifyProfileBtn);
+        modifyServiceBtn = findViewById(R.id.modifyServiceBtn);
+        modifyHoursBtn = findViewById(R.id.modifyWorkingHoursBtn);
+        viewRequestsBtn = findViewById(R.id.viewRequestBtn);
+        logOutBtn = findViewById(R.id.logOutBtn);
+
+        Intent intent = getIntent();
+        branchUserName = intent.getStringExtra("branchUserName");
+        branchPassword = intent.getStringExtra("branchPassword");
+        reference = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
+
+        logOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BranchHomePage.this, EmployeeWelcomePage.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(BranchHomePage.this, "Déconnexion réussie", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        modifyProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                modifyProfile();
+            }
+        });
+    }
+
+    private void modifyProfile() {
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_modify_branch_profile,null);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setView(dialogView);
+
+        EditText modifyBranchName = dialogView.findViewById(R.id.modifyBranchName);
+        EditText modifyBranchNumber = dialogView.findViewById(R.id.modifyBranchNumber);
+        EditText modifyBranchAddress = dialogView.findViewById(R.id.modifyBranchAddress);
+
+        Button updateBtn = dialogView.findViewById(R.id.updateBtn);
+
+        dialogBuilder.setView(dialogView);
+        AlertDialog dialog = dialogBuilder.create();
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Branch currentBranch = snapshot.getValue(Branch.class);
+
+                modifyBranchName.setText(currentBranch.getBranchName());
+                modifyBranchNumber.setText(currentBranch.getBranchPhoneNumber());
+                modifyBranchAddress.setText(currentBranch.getBranchAddress());
+
+                reference.removeEventListener(this);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        dialog.show();
+
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newBranchName = modifyBranchName.getText().toString();
+                String newBranchNumber = modifyBranchNumber.getText().toString();
+                String newBranchAddress = modifyBranchAddress.getText().toString();
+
+                // Empty error handling
+                if (newBranchName.isEmpty()) {
+                    modifyBranchName.setError("Nom de la succursale requis");
+                    return;
+                } if (newBranchNumber.isEmpty()) {
+                    modifyBranchNumber.setError("Numéro de téléphone requis");
+                    return;
+                } if (newBranchAddress.isEmpty()) {
+                    modifyBranchAddress.setError("Adresse requise");
+                    return;
+                }
+
+                // Invalid handling
+                if (!isNameValid(newBranchName)) {
+                    modifyBranchName.setError("Nom de la succursale invalid");
+                    return;
+                } if (!isPhoneNumberValid(newBranchNumber)) {
+                    modifyBranchNumber.setError("Numéro de téléphone invalid");
+                    return;
+                } if (!isAddressValid(newBranchAddress)) {
+                    modifyBranchAddress.setError("Adrese invalide");
+                    return;
+                }
+
+                Employee employee = new Employee();
+                employee.modifyBranchProfile(branchUserName, branchPassword, newBranchName, newBranchNumber, newBranchAddress);
+
+                dialog.dismiss();
+                Toast.makeText(BranchHomePage.this, "Profil de la succursale modifié", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
+    private boolean isNameValid(String userName) {
+        String specialCharacters = "!\"#$%^&*()_+-=/*:;<>[]{}\\|~`";
+
+        for (int i = 0; i < specialCharacters.length(); i++) {
+            String specialCharacter = Character.toString(specialCharacters.charAt(i));
+
+            if (userName.contains(specialCharacter)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    private boolean isAddressValid(String userName) {
+        String specialCharacters = "!\"#$%^&*()_+=/*:;<>[]{}\\|~`";
+
+        for (int i = 0; i < specialCharacters.length(); i++) {
+            String specialCharacter = Character.toString(specialCharacters.charAt(i));
+
+            if (userName.contains(specialCharacter)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    private boolean isPhoneNumberValid(String phoneNumber) {
+        String phoneRegExpVar = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
+        Pattern pVar = Pattern.compile(phoneRegExpVar);
+        Matcher mVar = pVar.matcher(phoneNumber);
+        return mVar.matches();
     }
 }

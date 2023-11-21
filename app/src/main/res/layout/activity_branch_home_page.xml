@@ -6,4 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".BranchHomePage">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/branchOperationTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:text="Fonctionnement de la succursale"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+    <Button
+        android:id="@+id/modifyProfileBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Modifier le profil"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <Button
+        android:id="@+id/modifyServiceBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Modifier les services offerts"
+        app:layout_constraintEnd_toEndOf="@+id/modifyProfileBtn"
+        app:layout_constraintStart_toStartOf="@+id/modifyProfileBtn"
+        app:layout_constraintTop_toBottomOf="@+id/modifyProfileBtn" />
+
+    <Button
+        android:id="@+id/modifyWorkingHoursBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Modifier les heures de travail"
+        app:layout_constraintEnd_toEndOf="@+id/modifyServiceBtn"
+        app:layout_constraintStart_toStartOf="@+id/modifyServiceBtn"
+        app:layout_constraintTop_toBottomOf="@+id/modifyServiceBtn" />
+
+    <Button
+        android:id="@+id/viewRequestBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Voir les demandes"
+        app:layout_constraintEnd_toEndOf="@+id/modifyWorkingHoursBtn"
+        app:layout_constraintStart_toStartOf="@+id/modifyWorkingHoursBtn"
+        app:layout_constraintTop_toBottomOf="@+id/modifyWorkingHoursBtn" />
+
+    <Button
+        android:id="@+id/logOutBtn"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/se_deconnecter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/viewRequestBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/viewRequestBtn"
+        app:layout_constraintTop_toBottomOf="@+id/viewRequestBtn"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

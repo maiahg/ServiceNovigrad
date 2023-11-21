@@ -2,8 +2,13 @@ package com.example.servicenovigrad;
 
 import android.widget.CheckBox;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 
@@ -18,7 +23,16 @@ public class Employee extends User implements Serializable {
 
         Branch branch = new Branch (branchUserName, branchPassword, branchName, branchPhoneNumber, branchAddress);
 
-        reference.child(branchName).setValue(branch);
+        reference.child(branchUserName).setValue(branch);
 
+    }
+
+    public void modifyBranchProfile(String branchUserName, String branchPassword, String newBranchName, String newBranchPhoneNumber, String newBranchAddress) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
+
+        Branch branch = new Branch(branchUserName, branchPassword, newBranchName, newBranchPhoneNumber, newBranchAddress);
+
+        reference.removeValue();
+        reference.getParent().child(branchUserName).setValue(branch);
     }
 }
