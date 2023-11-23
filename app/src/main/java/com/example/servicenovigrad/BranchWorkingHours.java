@@ -25,7 +25,7 @@ public class BranchWorkingHours extends AppCompatActivity {
     ImageButton closeBtn;
     TextView currentHoursMon, currentHoursTues, currentHoursWed, currentHoursThurs, currentHoursFri, currentHoursSat, currentHoursSun, modifyMon, modifyTues, modifyWed, modifyThurs, modifyFri, modifySat, modifySun;
     DatabaseReference ref;
-    String branchUserName, currentWorkingDays, currentWorkingHours, updatedWorkingDays;
+    String branchUserName, branchName, currentWorkingDays, currentWorkingHours, updatedWorkingDays;
     ArrayList<String> workingDaysList = new ArrayList<>();
     Employee employee = new Employee();
     @Override
@@ -63,6 +63,7 @@ public class BranchWorkingHours extends AppCompatActivity {
 
         Intent intent = getIntent();
         branchUserName = intent.getStringExtra("branchUserName");
+        branchName = intent.getStringExtra("branchName");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -89,19 +90,39 @@ public class BranchWorkingHours extends AppCompatActivity {
                 currentHoursSat.setText(String.format("Les heures de travail: " + workingHours[5]));
                 currentHoursSun.setText(String.format("Les heures de travail: " + workingHours[6]));
 
-                if(!monBox.isChecked()) {modifyMon.setVisibility(View.INVISIBLE);}
+                if(!monBox.isChecked()) {
+                    modifyMon.setVisibility(View.INVISIBLE);
+                    currentHoursMon.setText(String.format("La succursale est fermée"));}
                 else {modifyMon.setVisibility(View.VISIBLE);}
-                if(!tuesBox.isChecked()) {modifyTues.setVisibility(View.INVISIBLE);}
+
+                if(!tuesBox.isChecked()) {
+                    modifyTues.setVisibility(View.INVISIBLE);
+                    currentHoursTues.setText(String.format("La succursale est fermée"));}
                 else {modifyTues.setVisibility(View.VISIBLE);}
-                if(!wedBox.isChecked()) {modifyWed.setVisibility(View.INVISIBLE);}
+
+                if(!wedBox.isChecked()) {
+                    modifyWed.setVisibility(View.INVISIBLE);
+                    currentHoursWed.setText(String.format("La succursale est fermée"));}
                 else {modifyWed.setVisibility(View.VISIBLE);}
-                if(!thursBox.isChecked()) {modifyThurs.setVisibility(View.INVISIBLE);}
+
+                if(!thursBox.isChecked()) {
+                    modifyThurs.setVisibility(View.INVISIBLE);
+                    currentHoursThurs.setText(String.format("La succursale est fermée"));}
                 else {modifyThurs.setVisibility(View.VISIBLE);}
-                if(!friBox.isChecked()) {modifyFri.setVisibility(View.INVISIBLE);}
+
+                if(!friBox.isChecked()) {
+                    modifyFri.setVisibility(View.INVISIBLE);
+                    currentHoursFri.setText(String.format("La succursale est fermée"));}
                 else {modifyFri.setVisibility(View.VISIBLE);}
-                if(!satBox.isChecked()) {modifySat.setVisibility(View.INVISIBLE);}
+
+                if(!satBox.isChecked()) {
+                    modifySat.setVisibility(View.INVISIBLE);
+                    currentHoursSat.setText(String.format("La succursale est fermée"));}
                 else {modifySat.setVisibility(View.VISIBLE);}
-                if(!sunBox.isChecked()) {modifySun.setVisibility(View.INVISIBLE);}
+
+                if(!sunBox.isChecked()) {
+                    modifySun.setVisibility(View.INVISIBLE);
+                    currentHoursSun.setText(String.format("La succursale est fermée"));}
                 else {modifySun.setVisibility(View.VISIBLE);}
             }
 
@@ -117,6 +138,7 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchHomePage.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
                 startActivity(intent);
                 finish();
             }

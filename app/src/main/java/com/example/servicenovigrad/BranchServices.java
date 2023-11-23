@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BranchServices extends AppCompatActivity {
-    String branchUserName;
+    String branchUserName, branchName;
     Button addServiceBtn;
     ImageButton closeBtn;
     DatabaseReference branchesRef, servicesRef;
@@ -44,6 +44,7 @@ public class BranchServices extends AppCompatActivity {
 
         Intent intent = getIntent();
         branchUserName = intent.getStringExtra("branchUserName");
+        branchName = intent.getStringExtra("branchName");
 
         branchServicesList = findViewById(R.id.servicesList);
         services = new ArrayList<>();
@@ -64,6 +65,7 @@ public class BranchServices extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchServices.this, BranchHomePage.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
                 startActivity(intent);
                 finish();
             }

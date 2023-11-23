@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ServiceNovigrad"
         tools:targetApi="31">
         <activity
+            android:name=".BranchRequests"
+            android:exported="false" />
+        <activity
             android:name=".BranchSetHours"
             android:exported="false" />
         <activity

@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 public class BranchHomePage extends AppCompatActivity {
     private Button modifyProfileBtn, modifyServiceBtn, modifyHoursBtn, viewRequestsBtn, logOutBtn;
     private DatabaseReference reference;
-    private String branchUserName;
+    private String branchUserName, branchName;
     Employee employee = new Employee();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class BranchHomePage extends AppCompatActivity {
 
         Intent intent = getIntent();
         branchUserName = intent.getStringExtra("branchUserName");
+        branchName = intent.getStringExtra("branchName");
         reference = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
 
         logOutBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +64,7 @@ public class BranchHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchHomePage.this, BranchServices.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
                 startActivity(intent);
                 finish();
             }
@@ -73,6 +75,18 @@ public class BranchHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchHomePage.this, BranchWorkingHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        viewRequestsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BranchHomePage.this, BranchRequests.class);
+                intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
                 startActivity(intent);
                 finish();
             }

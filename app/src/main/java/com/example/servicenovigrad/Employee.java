@@ -75,6 +75,24 @@ public class Employee extends User implements Serializable {
         ref.updateChildren(workingHoursUpdate);
     }
 
+    public void approveRequest(String requestNumber) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("requests").child(requestNumber);
+        Map<String, Object> statusUpdate = new HashMap<>();
+        statusUpdate.put("requestStatus", "approuvé");
+
+        ref.updateChildren(statusUpdate);
+
+    }
+
+    public void rejectRequest(String requestNumber) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("requests").child(requestNumber);
+        Map<String, Object> statusUpdate = new HashMap<>();
+        statusUpdate.put("requestStatus", "rejeté");
+
+        ref.updateChildren(statusUpdate);
+
+    }
+
     public boolean isUserNameValid(String userName) {
         String specialCharacters = "!\"#$%^&*()_+-=/*:;<>[]{}\\|~`";
 

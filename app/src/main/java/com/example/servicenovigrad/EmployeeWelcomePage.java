@@ -177,7 +177,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
                                         dialog.dismiss();
                                         Intent intent = new Intent(EmployeeWelcomePage.this, BranchHomePage.class);
                                         intent.putExtra("branchUserName", branch.getBranchUserName());
-                                        intent.putExtra("branchPassword", branch.getBranchPassword());
+                                        intent.putExtra("branchName", branch.getBranchName());
                                         startActivity(intent);
                                         finish();
                                     } else {
