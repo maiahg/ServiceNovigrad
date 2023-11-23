@@ -114,16 +114,16 @@ public class EmployeeWelcomePage extends AppCompatActivity {
                 }
 
                 // Invalid handling
-                if (!isUserNameValid(userName)) {
+                if (!employee.isUserNameValid(userName)) {
                     branchUserName.setError("Nom d'utilisateur invalid");
                     return;
-                } if (!isNameAndAddressValid(name)) {
+                } if (!employee.isNameAndAddressValid(name)) {
                     branchName.setError("Nom de la succursale invalid");
                     return;
-                } if (!isPhoneNumberValid(phoneNumber)) {
+                } if (!employee.isPhoneNumberValid(phoneNumber)) {
                     branchPhoneNumber.setError("Numéro de téléphone invalid");
                     return;
-                } if (!isNameAndAddressValid(address)) {
+                } if (!employee.isNameAndAddressValid(address)) {
                     branchAddress.setError("Adresse invalide");
                     return;
                 }
@@ -134,37 +134,6 @@ public class EmployeeWelcomePage extends AppCompatActivity {
                 Toast.makeText(EmployeeWelcomePage.this, "Compte pour la succursale crée", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private boolean isUserNameValid(String userName) {
-        String specialCharacters = "!\"#$%^&*()_+-=/*:;<>[]{}\\|~`";
-
-        for (int i = 0; i < specialCharacters.length(); i++) {
-            String specialCharacter = Character.toString(specialCharacters.charAt(i));
-
-            if (userName.contains(specialCharacter)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    private boolean isNameAndAddressValid(String userName) {
-        String specialCharacters = "!\"#$%^&*()_+=/*:;<>[]{}\\|~`";
-
-        for (int i = 0; i < specialCharacters.length(); i++) {
-            String specialCharacter = Character.toString(specialCharacters.charAt(i));
-
-            if (userName.contains(specialCharacter)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    private boolean isPhoneNumberValid(String phoneNumber) {
-        String phoneRegExpVar = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
-        Pattern pVar = Pattern.compile(phoneRegExpVar);
-        Matcher mVar = pVar.matcher(phoneNumber);
-        return mVar.matches();
     }
 
     private void logInBranch() {

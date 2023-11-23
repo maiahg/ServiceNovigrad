@@ -24,7 +24,8 @@ import java.util.regex.Pattern;
 public class BranchHomePage extends AppCompatActivity {
     private Button modifyProfileBtn, modifyServiceBtn, modifyHoursBtn, viewRequestsBtn, logOutBtn;
     private DatabaseReference reference;
-    private String branchUserName, branchPassword;
+    private String branchUserName;
+    Employee employee = new Employee();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,6 @@ public class BranchHomePage extends AppCompatActivity {
 
         Intent intent = getIntent();
         branchUserName = intent.getStringExtra("branchUserName");
-        branchPassword = intent.getStringExtra("branchPassword");
         reference = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
 
         logOutBtn.setOnClickListener(new View.OnClickListener() {
@@ -133,19 +133,19 @@ public class BranchHomePage extends AppCompatActivity {
                 }
 
                 // Invalid handling
-                if (!isNameValid(newBranchName)) {
+                if (!employee.isNameAndAddressValid(newBranchName)) {
                     modifyBranchName.setError("Nom de la succursale invalid");
                     return;
-                } if (!isPhoneNumberValid(newBranchNumber)) {
+                } if (!employee.isPhoneNumberValid(newBranchNumber)) {
                     modifyBranchNumber.setError("Numéro de téléphone invalid");
                     return;
-                } if (!isAddressValid(newBranchAddress)) {
+                } if (!employee.isNameAndAddressValid(newBranchAddress)) {
                     modifyBranchAddress.setError("Adrese invalide");
                     return;
                 }
 
                 Employee employee = new Employee();
-                employee.modifyBranchProfile(branchUserName, branchPassword, newBranchName, newBranchNumber, newBranchAddress);
+                employee.modifyBranchProfile(branchUserName, newBranchName, newBranchNumber, newBranchAddress);
 
                 dialog.dismiss();
                 Toast.makeText(BranchHomePage.this, "Profil de la succursale modifié", Toast.LENGTH_SHORT).show();
@@ -153,36 +153,5 @@ public class BranchHomePage extends AppCompatActivity {
             }
         });
 
-    }
-
-    private boolean isNameValid(String userName) {
-        String specialCharacters = "!\"#$%^&*()_+-=/*:;<>[]{}\\|~`";
-
-        for (int i = 0; i < specialCharacters.length(); i++) {
-            String specialCharacter = Character.toString(specialCharacters.charAt(i));
-
-            if (userName.contains(specialCharacter)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    private boolean isAddressValid(String userName) {
-        String specialCharacters = "!\"#$%^&*()_+=/*:;<>[]{}\\|~`";
-
-        for (int i = 0; i < specialCharacters.length(); i++) {
-            String specialCharacter = Character.toString(specialCharacters.charAt(i));
-
-            if (userName.contains(specialCharacter)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    private boolean isPhoneNumberValid(String phoneNumber) {
-        String phoneRegExpVar = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
-        Pattern pVar = Pattern.compile(phoneRegExpVar);
-        Matcher mVar = pVar.matcher(phoneNumber);
-        return mVar.matches();
     }
 }

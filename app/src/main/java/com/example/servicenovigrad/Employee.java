@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Employee extends User implements Serializable {
     Employee() {}
@@ -38,13 +40,15 @@ public class Employee extends User implements Serializable {
 
     }
 
-    public void modifyBranchProfile(String branchUserName, String branchPassword, String newBranchName, String newBranchPhoneNumber, String newBranchAddress) {
+    public void modifyBranchProfile(String branchUserName, String newBranchName, String newBranchPhoneNumber, String newBranchAddress) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
 
-        Branch branch = new Branch(branchUserName, branchPassword, newBranchName, newBranchPhoneNumber, newBranchAddress);
+        Map<String, Object> profileUpdate = new HashMap<>();
+        profileUpdate.put("branchName", newBranchName);
+        profileUpdate.put("branchPhoneNumber", newBranchPhoneNumber);
+        profileUpdate.put("branchAddress", newBranchAddress);
 
-        reference.removeValue();
-        reference.getParent().child(branchUserName).setValue(branch);
+        reference.updateChildren(profileUpdate);
     }
 
     public void updateServices(String branchUserName, String branchServices) {
@@ -69,5 +73,36 @@ public class Employee extends User implements Serializable {
         workingHoursUpdate.put("workingHours", updatedWorkingHours);
 
         ref.updateChildren(workingHoursUpdate);
+    }
+
+    public boolean isUserNameValid(String userName) {
+        String specialCharacters = "!\"#$%^&*()_+-=/*:;<>[]{}\\|~`";
+
+        for (int i = 0; i < specialCharacters.length(); i++) {
+            String specialCharacter = Character.toString(specialCharacters.charAt(i));
+
+            if (userName.contains(specialCharacter)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean isNameAndAddressValid(String userName) {
+        String specialCharacters = "!\"#$%^&*()_+=/*:;<>[]{}\\|~`";
+
+        for (int i = 0; i < specialCharacters.length(); i++) {
+            String specialCharacter = Character.toString(specialCharacters.charAt(i));
+
+            if (userName.contains(specialCharacter)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean isPhoneNumberValid(String phoneNumber) {
+        String phoneRegExpVar = "^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
+        Pattern pVar = Pattern.compile(phoneRegExpVar);
+        Matcher mVar = pVar.matcher(phoneNumber);
+        return mVar.matches();
     }
 }
