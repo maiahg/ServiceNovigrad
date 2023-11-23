@@ -39,7 +39,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        welcomeTxt.setText("Bienvenue " + intent.getStringExtra("firstName") + "!");
+        welcomeTxt.setText(String.format("Bienvenue " + intent.getStringExtra("firstName") + "!"));
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,16 +114,16 @@ public class EmployeeWelcomePage extends AppCompatActivity {
                 }
 
                 // Invalid handling
-                if (!isNameValid(userName)) {
+                if (!isUserNameValid(userName)) {
                     branchUserName.setError("Nom d'utilisateur invalid");
                     return;
-                } if (!isNameValid(name)) {
+                } if (!isNameAndAddressValid(name)) {
                     branchName.setError("Nom de la succursale invalid");
                     return;
                 } if (!isPhoneNumberValid(phoneNumber)) {
                     branchPhoneNumber.setError("Numéro de téléphone invalid");
                     return;
-                } if (!isAddressValid(address)) {
+                } if (!isNameAndAddressValid(address)) {
                     branchAddress.setError("Adresse invalide");
                     return;
                 }
@@ -136,7 +136,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
         });
     }
 
-    private boolean isNameValid(String userName) {
+    private boolean isUserNameValid(String userName) {
         String specialCharacters = "!\"#$%^&*()_+-=/*:;<>[]{}\\|~`";
 
         for (int i = 0; i < specialCharacters.length(); i++) {
@@ -148,7 +148,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
         }
         return true;
     }
-    private boolean isAddressValid(String userName) {
+    private boolean isNameAndAddressValid(String userName) {
         String specialCharacters = "!\"#$%^&*()_+=/*:;<>[]{}\\|~`";
 
         for (int i = 0; i < specialCharacters.length(); i++) {

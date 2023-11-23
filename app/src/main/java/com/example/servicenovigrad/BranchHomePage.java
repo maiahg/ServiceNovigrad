@@ -67,6 +67,16 @@ public class BranchHomePage extends AppCompatActivity {
                 finish();
             }
         });
+
+        modifyHoursBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BranchHomePage.this, BranchWorkingHours.class);
+                intent.putExtra("branchUserName", branchUserName);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void modifyProfile() {

@@ -158,6 +158,7 @@ public class BranchServices extends AppCompatActivity {
                                 newBranchServices = newBranchServices + ", " + serviceName;
                             }
                         }
+                        servicesAdapter.notifyDataSetChanged();
                         employee.updateServices(branchUserName, newBranchServices);
                         dialog.dismiss();
                         Toast.makeText(BranchServices.this, "Services ajoutés", Toast.LENGTH_SHORT).show();
@@ -229,6 +230,7 @@ public class BranchServices extends AppCompatActivity {
                     }
                 }
 
+                servicesAdapter.notifyDataSetChanged();
                 employee.updateServices(branchUserName, newBranchServices);
                 dialog.dismiss();
                 Toast.makeText(BranchServices.this, "Service supprimé", Toast.LENGTH_SHORT).show();

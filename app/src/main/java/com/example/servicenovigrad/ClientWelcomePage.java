@@ -2,6 +2,7 @@ package com.example.servicenovigrad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 public class ClientWelcomePage extends AppCompatActivity {
     private Button signoutBtn;
     private TextView welcomeTxt;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class ClientWelcomePage extends AppCompatActivity {
         welcomeTxt = findViewById(R.id.welcomeC);
         Intent intent = getIntent();
 
-        welcomeTxt.setText("Bienvenue " + intent.getStringExtra("firstName") + "!");
+        welcomeTxt.setText(String.format("Bienvenue " + intent.getStringExtra("firstName") + "!"));
 
         signoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

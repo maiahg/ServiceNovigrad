@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BranchWorkingHours">
+
+    <TextView
+        android:id="@+id/modifySat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textColor="#039BE5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/currentHoursSat"
+        app:layout_constraintEnd_toEndOf="@+id/modifyThurs"
+        app:layout_constraintStart_toStartOf="@+id/modifyFri"
+        app:layout_constraintTop_toTopOf="@+id/currentHoursSat" />
+
+    <TextView
+        android:id="@+id/modifyTues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textColor="#039BE5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/currentHoursTues"
+        app:layout_constraintEnd_toEndOf="@+id/modifyMon"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/modifyMon"
+        app:layout_constraintTop_toTopOf="@+id/currentHoursTues"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/modifySun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textColor="#039BE5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/currentHoursSun"
+        app:layout_constraintEnd_toEndOf="@+id/modifyFri"
+        app:layout_constraintStart_toStartOf="@+id/modifySat"
+        app:layout_constraintTop_toTopOf="@+id/currentHoursSun" />
+
+    <TextView
+        android:id="@+id/modifyFri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textColor="#039BE5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/currentHoursFri"
+        app:layout_constraintEnd_toEndOf="@+id/modifyWed"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/modifyThurs"
+        app:layout_constraintTop_toTopOf="@+id/currentHoursFri"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/modifyThurs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textColor="#039BE5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/currentHoursThurs"
+        app:layout_constraintEnd_toEndOf="@+id/modifyWed"
+        app:layout_constraintStart_toStartOf="@+id/modifyMon"
+        app:layout_constraintTop_toTopOf="@+id/currentHoursThurs" />
+
+    <TextView
+        android:id="@+id/currentHoursSat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="@+id/currentHoursFri"
+        app:layout_constraintStart_toStartOf="@+id/currentHoursFri"
+        app:layout_constraintTop_toBottomOf="@+id/satBox" />
+
+    <TextView
+        android:id="@+id/currentHoursSun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="@+id/currentHoursSat"
+        app:layout_constraintStart_toStartOf="@+id/currentHoursSat"
+        app:layout_constraintTop_toBottomOf="@+id/sunBox" />
+
+    <TextView
+        android:id="@+id/currentHoursFri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="@+id/currentHoursThurs"
+        app:layout_constraintStart_toStartOf="@+id/currentHoursThurs"
+        app:layout_constraintTop_toBottomOf="@+id/friBox" />
+
+    <TextView
+        android:id="@+id/currentHoursThurs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="@+id/currentHoursWed"
+        app:layout_constraintStart_toStartOf="@+id/currentHoursWed"
+        app:layout_constraintTop_toBottomOf="@+id/thursBox" />
+
+    <TextView
+        android:id="@+id/currentHoursWed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="@+id/currentHoursTues"
+        app:layout_constraintStart_toStartOf="@+id/currentHoursTues"
+        app:layout_constraintTop_toBottomOf="@+id/wedBox" />
+
+    <TextView
+        android:id="@+id/modifyWed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textColor="#039BE5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/currentHoursWed"
+        app:layout_constraintEnd_toEndOf="@+id/modifyMon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/modifyMon"
+        app:layout_constraintTop_toTopOf="@+id/currentHoursWed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/currentHoursTues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintEnd_toEndOf="@+id/currentHoursMon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/currentHoursMon"
+        app:layout_constraintTop_toBottomOf="@+id/tuesBox" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="321dp"
+        android:layout_height="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/workingHoursTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/working_hours"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <CheckBox
+        android:id="@+id/monBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/monday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instructionHours" />
+
+    <TextView
+        android:id="@+id/currentHoursMon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/textview"
+        app:layout_constraintStart_toStartOf="@+id/monBox"
+        app:layout_constraintTop_toBottomOf="@+id/monBox" />
+
+    <TextView
+        android:id="@+id/modifyMon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/update"
+        android:textColor="#039BE5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/currentHoursMon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/currentHoursMon"
+        app:layout_constraintTop_toTopOf="@+id/currentHoursMon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/tuesBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tuesday"
+        app:layout_constraintEnd_toEndOf="@+id/monBox"
+        app:layout_constraintStart_toStartOf="@+id/monBox"
+        app:layout_constraintTop_toBottomOf="@+id/currentHoursMon" />
+
+    <CheckBox
+        android:id="@+id/wedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wednesday"
+        app:layout_constraintEnd_toEndOf="@+id/tuesBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tuesBox"
+        app:layout_constraintTop_toBottomOf="@+id/currentHoursTues" />
+
+    <CheckBox
+        android:id="@+id/thursBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/thursday"
+        app:layout_constraintEnd_toEndOf="@+id/wedBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/wedBox"
+        app:layout_constraintTop_toBottomOf="@+id/currentHoursWed" />
+
+    <CheckBox
+        android:id="@+id/friBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/friday"
+        app:layout_constraintEnd_toEndOf="@+id/thursBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/thursBox"
+        app:layout_constraintTop_toBottomOf="@+id/currentHoursThurs" />
+
+    <CheckBox
+        android:id="@+id/satBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/saturday"
+        app:layout_constraintEnd_toEndOf="@+id/friBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/friBox"
+        app:layout_constraintTop_toBottomOf="@+id/currentHoursFri" />
+
+    <CheckBox
+        android:id="@+id/sunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sunday"
+        app:layout_constraintEnd_toEndOf="@+id/satBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/satBox"
+        app:layout_constraintTop_toBottomOf="@+id/currentHoursSat" />
+
+    <TextView
+        android:id="@+id/instructionHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/instruction_hours"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workingHoursTxt" />
+
+    <ImageButton
+        android:id="@+id/closeHBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

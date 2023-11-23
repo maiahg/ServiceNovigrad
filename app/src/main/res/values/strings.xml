@@ -54,6 +54,18 @@
     <string name="branch_address">Adresse</string>
     <string name="branch_name">Nom de la succursale</string>
     <string name="confirm_delete_services">Êtes-vous sûr de vouloir supprimer ce service?</string>
+    <string name="instruction_hours">Cliquez sur la case à cocher pour choisir les jours ouvrables</string>
+    <string name="sunday">Dimanche</string>
+    <string name="saturday">Samedi</string>
+    <string name="friday">Vendredi</string>
+    <string name="thursday">Jeudi</string>
+    <string name="wednesday">Mercredi</string>
+    <string name="tuesday">Mardi</string>
+    <string name="monday">Lundi</string>
+    <string name="working_hours">Les heurs de travail</string>
+    <string name="select_opening">Sélectionner l\'heure d\'ouverture</string>
+    <string name="select_closing">Sélectionner l\'heure de fermeture</string>
+    <string name="to">-</string>
     <string-array name="roles">
         <item>Employé</item>
         <item>Client</item>
