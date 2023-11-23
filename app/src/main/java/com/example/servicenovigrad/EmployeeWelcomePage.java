@@ -69,7 +69,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
 
     private void createBranch() {
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_create_branch, null);
+        View dialogView = inflater.inflate(R.layout.dialog_employee_create_branch, null);
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setView(dialogView);
 
@@ -169,7 +169,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
 
     private void logInBranch() {
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_login_branch, null);
+        View dialogView = inflater.inflate(R.layout.dialog_employee_login_branch, null);
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setView(dialogView);
 

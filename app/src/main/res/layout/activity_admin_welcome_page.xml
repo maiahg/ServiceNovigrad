@@ -23,7 +23,7 @@
         android:id="@+id/adminTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vous êtes connecté en tant que Admin"
+        android:text="@string/connect_as_Admin"
         app:layout_constraintEnd_toEndOf="@+id/welcomeAdmin"
         app:layout_constraintStart_toStartOf="@+id/welcomeAdmin"
         app:layout_constraintTop_toBottomOf="@+id/welcomeAdmin" />
@@ -53,7 +53,7 @@
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
-        android:text="Gérer les services"
+        android:text="@string/manage_services"
         app:layout_constraintEnd_toEndOf="@+id/adminTxt"
         app:layout_constraintStart_toStartOf="@+id/adminTxt"
         app:layout_constraintTop_toBottomOf="@+id/adminTxt" />
@@ -63,7 +63,7 @@
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Gérer les comptes"
+        android:text="@string/manage_accounts"
         app:layout_constraintEnd_toEndOf="@+id/servicesBtn"
         app:layout_constraintStart_toStartOf="@+id/servicesBtn"
         app:layout_constraintTop_toBottomOf="@+id/servicesBtn" />

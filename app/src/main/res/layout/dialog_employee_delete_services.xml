@@ -6,41 +6,40 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/confirmTxt"
+        android:id="@+id/deleteService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/confirm_delete_account"
+        android:text="@string/confirm_delete_services"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/yes"
-        android:layout_width="100dp"
+        android:id="@+id/ouiBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/yes"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/confirmTxt"
-        app:layout_constraintTop_toBottomOf="@+id/confirmTxt"
+        app:layout_constraintStart_toStartOf="@+id/deleteService"
+        app:layout_constraintTop_toBottomOf="@+id/deleteService"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/cancel"
-        android:layout_width="100dp"
+        android:id="@+id/nonBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/confirmTxt"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/yes"
-        app:layout_constraintTop_toBottomOf="@+id/confirmTxt"
+        app:layout_constraintEnd_toEndOf="@+id/deleteService"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toEndOf="@+id/ouiBtn"
+        app:layout_constraintTop_toBottomOf="@+id/deleteService"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

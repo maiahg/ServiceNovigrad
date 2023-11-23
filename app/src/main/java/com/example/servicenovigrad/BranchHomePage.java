@@ -57,11 +57,21 @@ public class BranchHomePage extends AppCompatActivity {
                 modifyProfile();
             }
         });
+
+        modifyServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BranchHomePage.this, BranchServices.class);
+                intent.putExtra("branchUserName", branchUserName);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void modifyProfile() {
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_modify_branch_profile,null);
+        View dialogView = inflater.inflate(R.layout.dialog_employee_modify_branch_profile,null);
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setView(dialogView);
 

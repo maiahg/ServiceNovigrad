@@ -1,12 +1,7 @@
 package com.example.servicenovigrad;
 
 public class Branch {
-    String branchUserName;
-    String branchPassword;
-    String branchName;
-    String branchAddress;
-    String branchPhoneNumber;
-
+    String branchUserName, branchPassword, branchName, branchAddress, branchPhoneNumber, branchServices;
     public Branch(){}
     public Branch(String branchUserName, String branchPassword, String branchName, String branchPhoneNumber, String branchAddress) {
         this.branchUserName = branchUserName;
@@ -54,5 +49,13 @@ public class Branch {
 
     public void setBranchPhoneNumber(String branchPhoneNumber) {
         this.branchPhoneNumber = branchPhoneNumber;
+    }
+
+    public String getBranchServices() {
+        return branchServices;
+    }
+
+    public void setBranchServices(String branchServices) {
+        this.branchServices = branchServices;
     }
 }

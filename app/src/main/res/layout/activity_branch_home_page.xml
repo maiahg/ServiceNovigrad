@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="176dp"
-        android:text="Fonctionnement de la succursale"
+        android:text="@string/branch_function"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
@@ -33,7 +33,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Modifier le profil"
+        android:text="@string/modify_profile"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -43,7 +43,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Modifier les services offerts"
+        android:text="@string/modify_services"
         app:layout_constraintEnd_toEndOf="@+id/modifyProfileBtn"
         app:layout_constraintStart_toStartOf="@+id/modifyProfileBtn"
         app:layout_constraintTop_toBottomOf="@+id/modifyProfileBtn" />
@@ -53,7 +53,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Modifier les heures de travail"
+        android:text="@string/modify_working_hours"
         app:layout_constraintEnd_toEndOf="@+id/modifyServiceBtn"
         app:layout_constraintStart_toStartOf="@+id/modifyServiceBtn"
         app:layout_constraintTop_toBottomOf="@+id/modifyServiceBtn" />
@@ -63,7 +63,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Voir les demandes"
+        android:text="@string/see_requests"
         app:layout_constraintEnd_toEndOf="@+id/modifyWorkingHoursBtn"
         app:layout_constraintStart_toStartOf="@+id/modifyWorkingHoursBtn"
         app:layout_constraintTop_toBottomOf="@+id/modifyWorkingHoursBtn" />

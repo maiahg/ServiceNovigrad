@@ -19,7 +19,7 @@
         android:id="@+id/roleC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vous êtes connecté en tant que Client"
+        android:text="@string/connect_as_Client"
         app:layout_constraintEnd_toEndOf="@+id/welcomeC"
         app:layout_constraintStart_toStartOf="@+id/welcomeC"
         app:layout_constraintTop_toBottomOf="@+id/welcomeC" />

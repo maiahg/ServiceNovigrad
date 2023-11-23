@@ -11,6 +11,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Employee extends User implements Serializable {
     Employee() {}
@@ -34,5 +36,13 @@ public class Employee extends User implements Serializable {
 
         reference.removeValue();
         reference.getParent().child(branchUserName).setValue(branch);
+    }
+
+    public void updateServices(String branchUserName, String branchServices) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
+        Map<String, Object> servicesUpdate = new HashMap<>();
+        servicesUpdate.put("branchServices", branchServices);
+
+        ref.updateChildren(servicesUpdate);
     }
 }
