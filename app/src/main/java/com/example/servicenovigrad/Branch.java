@@ -1,7 +1,7 @@
 package com.example.servicenovigrad;
 
 public class Branch {
-    String branchUserName, branchPassword, branchName, branchAddress, branchPhoneNumber, branchServices, openingDays, openingHours;
+    String branchUserName, branchPassword, branchName, branchAddress, branchPhoneNumber, branchServices, workingDays, workingHours;
     public Branch(){}
     public Branch(String branchUserName, String branchPassword, String branchName, String branchPhoneNumber, String branchAddress) {
         this.branchUserName = branchUserName;
@@ -59,19 +59,19 @@ public class Branch {
         this.branchServices = branchServices;
     }
 
-    public String getOpeningDays() {
-        return openingDays;
+    public String getWorkingDays() {
+        return workingDays;
     }
 
-    public void setOpeningDays(String openingDays) {
-        this.openingDays = openingDays;
+    public void setWorkingDays(String workingDays) {
+        this.workingDays = workingDays;
     }
 
-    public String getOpeningHours() {
-        return openingHours;
+    public String getWorkingHours() {
+        return workingHours;
     }
 
-    public void setOpeningHours(String openingHours) {
-        this.openingHours = openingHours;
+    public void setWorkingHours(String openingHours) {
+        this.workingHours = workingHours;
     }
 }

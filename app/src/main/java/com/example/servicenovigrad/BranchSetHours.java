@@ -118,7 +118,7 @@ public class BranchSetHours extends AppCompatActivity {
                 String newOpeningTime = String.format(Locale.CANADA, "%02d:%02d", openingHour, openingMinute);
                 String newClosingTime = String.format(Locale.CANADA, "%02d:%02d", closingHour, closingMinute);
                 String newWorkingHours = (newOpeningTime + " - " + newClosingTime);
-                updatedWorkingHours = getUpdatedOpeningHours(dayToModify, newWorkingHours, workingHoursList);
+                updatedWorkingHours = getUpdatedWorkingHours(dayToModify, newWorkingHours, workingHoursList);
                 employee.updateWorkingHours(branchUserName, updatedWorkingHours);
 
                 Intent intent = new Intent(BranchSetHours.this, BranchWorkingHours.class);
@@ -131,7 +131,7 @@ public class BranchSetHours extends AppCompatActivity {
         });
     }
 
-    private String getUpdatedOpeningHours(int i, String newWorkingHours, ArrayList<String> workingHoursList) {
+    private String getUpdatedWorkingHours(int i, String newWorkingHours, ArrayList<String> workingHoursList) {
         workingHoursList.set(i, newWorkingHours);
         StringBuilder updatedWorkingHours = new StringBuilder();
 

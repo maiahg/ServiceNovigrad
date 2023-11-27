@@ -32,7 +32,6 @@ public class BranchRequests extends AppCompatActivity {
     ListView requestsListView;
     ArrayList<String> requests;
     RequestsList requestsAdapter;
-    ListView servicesListView;
     Employee employee = new Employee();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,7 +152,7 @@ public class BranchRequests extends AppCompatActivity {
                     }
                 }
 
-                serviceRequestTxt.setText(String.format(serviceName + " Request " + requestNumber));
+                serviceRequestTxt.setText(String.format(serviceName + "\nDemande " + requestNumber));
                 requestStatusTxt.setText(String.format("Statut de la demande: " + requestStatus));
                 serviceNameTxt.setText(String.format("Nom: " + customerName));
                 serviceLastName.setText(String.format("Prénoms: " + customerLastName));

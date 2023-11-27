@@ -147,7 +147,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         monBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updatedWorkingDays = getUpdatedOpeningDays(0, isChecked, workingDaysList);
+                updatedWorkingDays = getUpdatedWorkingDays(0, isChecked, workingDaysList);
                 employee.updateWorkingDays(branchUserName, updatedWorkingDays);
             }
         });
@@ -155,7 +155,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         tuesBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updatedWorkingDays = getUpdatedOpeningDays(1, isChecked, workingDaysList);
+                updatedWorkingDays = getUpdatedWorkingDays(1, isChecked, workingDaysList);
                 employee.updateWorkingDays(branchUserName, updatedWorkingDays);
             }
         });
@@ -163,7 +163,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         wedBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updatedWorkingDays = getUpdatedOpeningDays(2, isChecked, workingDaysList);
+                updatedWorkingDays = getUpdatedWorkingDays(2, isChecked, workingDaysList);
                 employee.updateWorkingDays(branchUserName, updatedWorkingDays);
             }
         });
@@ -171,7 +171,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         thursBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updatedWorkingDays = getUpdatedOpeningDays(3, isChecked, workingDaysList);
+                updatedWorkingDays = getUpdatedWorkingDays(3, isChecked, workingDaysList);
                 employee.updateWorkingDays(branchUserName, updatedWorkingDays);
             }
         });
@@ -179,7 +179,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         friBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updatedWorkingDays = getUpdatedOpeningDays(4, isChecked, workingDaysList);
+                updatedWorkingDays = getUpdatedWorkingDays(4, isChecked, workingDaysList);
                 employee.updateWorkingDays(branchUserName, updatedWorkingDays);
             }
         });
@@ -187,7 +187,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         satBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updatedWorkingDays = getUpdatedOpeningDays(5, isChecked, workingDaysList);
+                updatedWorkingDays = getUpdatedWorkingDays(5, isChecked, workingDaysList);
                 employee.updateWorkingDays(branchUserName, updatedWorkingDays);
             }
         });
@@ -195,7 +195,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         sunBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updatedWorkingDays = getUpdatedOpeningDays(6, isChecked, workingDaysList);
+                updatedWorkingDays = getUpdatedWorkingDays(6, isChecked, workingDaysList);
                 employee.updateWorkingDays(branchUserName, updatedWorkingDays);
             }
         });
@@ -279,7 +279,7 @@ public class BranchWorkingHours extends AppCompatActivity {
 
     }
 
-    private String getUpdatedOpeningDays(int i, boolean b, ArrayList<String> workingDaysList) {
+    private String getUpdatedWorkingDays(int i, boolean b, ArrayList<String> workingDaysList) {
         String updatedValue = String.valueOf(b);
         workingDaysList.set(i, updatedValue);
         StringBuilder updatedWorkingDays = new StringBuilder();

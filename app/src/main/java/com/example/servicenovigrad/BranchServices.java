@@ -24,13 +24,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BranchServices extends AppCompatActivity {
-    String branchUserName, branchName;
+    String branchUserName, branchName, currentBranchServices;
     Button addServiceBtn;
     ImageButton closeBtn;
     DatabaseReference branchesRef, servicesRef;
     ListView branchServicesList;
     ArrayList<String> services;
-    String currentBranchServices;
     ArrayList<Service> availableServices;
     BranchServicesList servicesAdapter;
     Employee employee = new Employee();
