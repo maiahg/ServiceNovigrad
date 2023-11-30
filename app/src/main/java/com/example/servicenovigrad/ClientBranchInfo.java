@@ -9,6 +9,6 @@ public class ClientBranchInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_branch_info);
+        setContentView(R.layout.activity_client_branch_info);
     }
 }

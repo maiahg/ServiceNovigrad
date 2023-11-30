@@ -37,7 +37,7 @@ public class ClientNewRequest extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_new_request);
+        setContentView(R.layout.activity_client_new_request);
 
         Intent intent = getIntent();
         dataBaseID = intent.getStringExtra("dataBaseID");
@@ -106,7 +106,7 @@ public class ClientNewRequest extends AppCompatActivity {
                     if(postSnapshot.child("branchName").getValue().toString().equals(branchName)) {
                         Intent intent = new Intent(ClientNewRequest.this, ClientBranchInfo.class);
                         intent.putExtra("dataBaseID", dataBaseID);
-                        intent.putExtra("branchName", postSnapshot.getKey());
+                        intent.putExtra("branchName", postSnapshot.child("branchName").getValue().toString());
 
                         startActivity(intent);
                         branchesRef.removeEventListener(this);

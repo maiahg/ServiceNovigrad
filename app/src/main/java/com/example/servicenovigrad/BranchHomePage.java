@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 public class BranchHomePage extends AppCompatActivity {
     private Button modifyProfileBtn, modifyServiceBtn, modifyHoursBtn, viewRequestsBtn, logOutBtn;
     private DatabaseReference reference;
-    private String branchUserName, branchName;
+    private String branchUserName, branchName, firstName;
     Employee employee = new Employee();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +40,14 @@ public class BranchHomePage extends AppCompatActivity {
         Intent intent = getIntent();
         branchUserName = intent.getStringExtra("branchUserName");
         branchName = intent.getStringExtra("branchName");
+        firstName = intent.getStringExtra("firstName");
         reference = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
 
         logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BranchHomePage.this, EmployeeWelcomePage.class);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
                 Toast.makeText(BranchHomePage.this, "Déconnexion réussie", Toast.LENGTH_SHORT).show();
@@ -65,6 +67,7 @@ public class BranchHomePage extends AppCompatActivity {
                 Intent intent = new Intent(BranchHomePage.this, BranchServices.class);
                 intent.putExtra("branchUserName", branchUserName);
                 intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
             }
@@ -76,6 +79,7 @@ public class BranchHomePage extends AppCompatActivity {
                 Intent intent = new Intent(BranchHomePage.this, BranchWorkingHours.class);
                 intent.putExtra("branchUserName", branchUserName);
                 intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
             }
@@ -87,6 +91,7 @@ public class BranchHomePage extends AppCompatActivity {
                 Intent intent = new Intent(BranchHomePage.this, BranchRequests.class);
                 intent.putExtra("branchUserName", branchUserName);
                 intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
             }

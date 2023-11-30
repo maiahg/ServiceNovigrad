@@ -27,7 +27,7 @@ public class BranchSetHours extends AppCompatActivity {
     Button setOpeningTime, setClosingTime, updateBtn;
     ImageButton closeBtn;
     int openingHour, closingHour, openingMinute, closingMinute;
-    String branchUserName, currentWorkingHours, updatedWorkingHours;
+    String firstName, branchUserName, branchName, currentWorkingHours, updatedWorkingHours;
     int dayToModify;
     DatabaseReference ref;
     ArrayList<String> workingHoursList = new ArrayList<>();
@@ -43,7 +43,9 @@ public class BranchSetHours extends AppCompatActivity {
         updateBtn = findViewById(R.id.updateHoursBtn);
 
         Intent intent = getIntent();
+        firstName = intent.getStringExtra("firstName");
         branchUserName = intent.getStringExtra("branchUserName");
+        branchName = intent.getStringExtra("branchName");
         dayToModify = intent.getIntExtra("dayToModify", 0);
 
         ref = FirebaseDatabase.getInstance().getReference("branches");
@@ -67,6 +69,8 @@ public class BranchSetHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchSetHours.this, BranchWorkingHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
             }

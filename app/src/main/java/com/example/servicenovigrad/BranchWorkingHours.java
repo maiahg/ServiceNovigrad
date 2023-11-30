@@ -25,7 +25,7 @@ public class BranchWorkingHours extends AppCompatActivity {
     ImageButton closeBtn;
     TextView currentHoursMon, currentHoursTues, currentHoursWed, currentHoursThurs, currentHoursFri, currentHoursSat, currentHoursSun, modifyMon, modifyTues, modifyWed, modifyThurs, modifyFri, modifySat, modifySun;
     DatabaseReference ref;
-    String branchUserName, branchName, currentWorkingDays, currentWorkingHours, updatedWorkingDays;
+    String firstName, branchUserName, branchName, currentWorkingDays, currentWorkingHours, updatedWorkingDays;
     ArrayList<String> workingDaysList = new ArrayList<>();
     Employee employee = new Employee();
     @Override
@@ -64,6 +64,7 @@ public class BranchWorkingHours extends AppCompatActivity {
         Intent intent = getIntent();
         branchUserName = intent.getStringExtra("branchUserName");
         branchName = intent.getStringExtra("branchName");
+        firstName = intent.getStringExtra("firstName");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -139,6 +140,7 @@ public class BranchWorkingHours extends AppCompatActivity {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchHomePage.class);
                 intent.putExtra("branchUserName", branchUserName);
                 intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
             }
@@ -205,6 +207,8 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchSetHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 intent.putExtra("dayToModify", 0);
                 startActivity(intent);
                 finish();

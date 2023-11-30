@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class BranchRequests extends AppCompatActivity {
     ImageButton closeBtn;
-    String branchUserName, branchName, serviceName, customerID, customerName, customerLastName, customerAddress, customerDateOfBirth, customerPermit, requestStatus;
+    String firstName, branchUserName, branchName, serviceName, customerID, customerName, customerLastName, customerAddress, customerDateOfBirth, customerPermit, requestStatus;
     boolean customerProofOfResidence, customerProofOfStatus, customerPhoto;
     DatabaseReference requestsRef, servicesRef, userRef;
     ListView requestsListView;
@@ -41,6 +41,8 @@ public class BranchRequests extends AppCompatActivity {
         Intent intent = getIntent();
         branchUserName = intent.getStringExtra("branchUserName");
         branchName = intent.getStringExtra("branchName");
+        firstName = intent.getStringExtra("firstName");
+
 
         closeBtn = findViewById(R.id.closeRBtn);
 
@@ -57,6 +59,7 @@ public class BranchRequests extends AppCompatActivity {
                 Intent intent = new Intent(BranchRequests.this, BranchHomePage.class);
                 intent.putExtra("branchUserName", branchUserName);
                 intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
             }

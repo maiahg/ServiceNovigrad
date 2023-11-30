@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 public class EmployeeWelcomePage extends AppCompatActivity {
     private Button signOutBtn, createBranchBtn, signInBtn;
     private TextView welcomeTxt;
+    private String firstName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,9 @@ public class EmployeeWelcomePage extends AppCompatActivity {
         signInBtn = findViewById(R.id.connectBranch);
 
         Intent intent = getIntent();
+        firstName = intent.getStringExtra("firstName");
 
-        welcomeTxt.setText(String.format("Bienvenue " + intent.getStringExtra("firstName") + "!"));
+        welcomeTxt.setText(String.format("Bienvenue " + firstName + "!"));
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,6 +180,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
                                         Intent intent = new Intent(EmployeeWelcomePage.this, BranchHomePage.class);
                                         intent.putExtra("branchUserName", branch.getBranchUserName());
                                         intent.putExtra("branchName", branch.getBranchName());
+                                        intent.putExtra("firstName", firstName);
                                         startActivity(intent);
                                         finish();
                                     } else {

@@ -34,6 +34,7 @@ public class Employee extends User implements Serializable {
         Map<String, Object> openingUpdate = new HashMap<>();
         openingUpdate.put("workingDays", "false, false, false, false, false, false, false");
         openingUpdate.put("workingHours", "N/A, N/A, N/A, N/A, N/A, N/A, N/A");
+        openingUpdate.put("branchRating", "0");
 
         openingRef.updateChildren(openingUpdate);
 
