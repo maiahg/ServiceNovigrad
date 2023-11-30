@@ -130,9 +130,9 @@ public class BranchHomePage extends AppCompatActivity {
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String newBranchName = modifyBranchName.getText().toString();
-                String newBranchNumber = modifyBranchNumber.getText().toString();
-                String newBranchAddress = modifyBranchAddress.getText().toString();
+                String newBranchName = modifyBranchName.getText().toString().trim();
+                String newBranchNumber = modifyBranchNumber.getText().toString().trim();
+                String newBranchAddress = modifyBranchAddress.getText().toString().trim();
 
                 // Empty error handling
                 if (newBranchName.isEmpty()) {

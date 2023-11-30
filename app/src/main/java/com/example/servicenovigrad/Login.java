@@ -92,6 +92,7 @@ public class Login extends AppCompatActivity {
                                 case "Employé":
                                     Intent intentE = new Intent(Login.this, EmployeeWelcomePage.class);
                                     intentE.putExtra("firstName", user.getFirstName());
+                                    intentE.putExtra("dataBaseID", user.getDataBaseID());
                                     startActivity(intentE);
                             }
                         } else {

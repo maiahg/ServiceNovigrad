@@ -38,12 +38,34 @@
 
     <Button
         android:id="@+id/signoutC"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/se_deconnecter"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/submittedRequestsBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/submittedRequestsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/submittedRequestsBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/submittedRequestsBtn"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/submitted_requests"
+        app:layout_constraintEnd_toEndOf="@+id/newRequestBtn"
+        app:layout_constraintStart_toStartOf="@+id/newRequestBtn"
+        app:layout_constraintTop_toBottomOf="@+id/newRequestBtn" />
+
+    <Button
+        android:id="@+id/newRequestBtn"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/new_request"
         app:layout_constraintEnd_toEndOf="@+id/roleC"
         app:layout_constraintStart_toStartOf="@+id/roleC"
-        app:layout_constraintTop_toBottomOf="@+id/roleC"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/roleC" />
 </androidx.constraintlayout.widget.ConstraintLayout>

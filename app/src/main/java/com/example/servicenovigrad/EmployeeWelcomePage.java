@@ -89,11 +89,11 @@ public class EmployeeWelcomePage extends AppCompatActivity {
         createBranch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userName = branchUserName.getText().toString();
-                String password = branchPassword.getText().toString();
-                String name = branchName.getText().toString();
-                String phoneNumber = branchPhoneNumber.getText().toString();
-                String address = branchAddress.getText().toString();
+                String userName = branchUserName.getText().toString().trim();
+                String password = branchPassword.getText().toString().trim();
+                String name = branchName.getText().toString().trim();
+                String phoneNumber = branchPhoneNumber.getText().toString().trim();
+                String address = branchAddress.getText().toString().trim();
 
                 // Empty error handling
                 if (userName.isEmpty()) {

@@ -2,7 +2,6 @@ package com.example.servicenovigrad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,20 +10,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ClientWelcomePage extends AppCompatActivity {
-    private Button signoutBtn;
+    private Button signOutBtn, newRequestBtn, submittedRequestsBtn;
     private TextView welcomeTxt;
+    private String dataBaseID, firstName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_welcome_page);
 
-        signoutBtn = findViewById(R.id.signoutC);
+        signOutBtn = findViewById(R.id.signoutC);
+        newRequestBtn = findViewById(R.id.newRequestBtn);
+        submittedRequestsBtn = findViewById(R.id.submittedRequestsBtn);
         welcomeTxt = findViewById(R.id.welcomeC);
         Intent intent = getIntent();
 
-        welcomeTxt.setText(String.format("Bienvenue " + intent.getStringExtra("firstName") + "!"));
+        dataBaseID = intent.getStringExtra("dataBaseID");
+        firstName = intent.getStringExtra("firstName");
+        welcomeTxt.setText(String.format("Bienvenue " + firstName + "!"));
 
-        signoutBtn.setOnClickListener(new View.OnClickListener() {
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                Intent intent = new Intent(ClientWelcomePage.this, Login.class);
@@ -33,5 +37,28 @@ public class ClientWelcomePage extends AppCompatActivity {
                Toast.makeText(ClientWelcomePage.this, "Déconnexion réussie", Toast.LENGTH_SHORT).show();
             }
         });
+
+        newRequestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientWelcomePage.this, ClientNewRequest.class);
+                intent.putExtra("dataBaseID", dataBaseID);
+                intent.putExtra("firstName", firstName);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        submittedRequestsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientWelcomePage.this, ClientSubmittedRequests.class);
+                intent.putExtra("dataBaseID", dataBaseID);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 }

@@ -61,10 +61,10 @@ public class Register extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firstNameString = editFirstName.getText().toString();
-                lastNameString = editLastName.getText().toString();
-                emailString = editEmail.getText().toString();
-                passwordString = editPassword.getText().toString();
+                firstNameString = editFirstName.getText().toString().trim();
+                lastNameString = editLastName.getText().toString().trim();
+                emailString = editEmail.getText().toString().trim();
+                passwordString = editPassword.getText().toString().trim();
                 dataBase = FirebaseDatabase.getInstance();
                 reference = dataBase.getReference("users");
 

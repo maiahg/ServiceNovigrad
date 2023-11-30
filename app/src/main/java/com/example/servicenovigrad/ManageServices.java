@@ -173,7 +173,7 @@ public class ManageServices extends AppCompatActivity {
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newServiceName = editServiceName.getText().toString();
+                String newServiceName = editServiceName.getText().toString().trim();
 
                 if(newServiceName.isEmpty()) {
                     editServiceName.setError("Le nom de service est requis");
@@ -226,7 +226,7 @@ public class ManageServices extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
            @Override
             public void onClick(View view) {
-               String serviceNameString = serviceNameEdt.getText().toString();
+               String serviceNameString = serviceNameEdt.getText().toString().trim();
 
                if (serviceNameString.isEmpty()) {
 
