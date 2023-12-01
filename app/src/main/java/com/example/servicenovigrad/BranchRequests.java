@@ -157,8 +157,8 @@ public class BranchRequests extends AppCompatActivity {
 
                 serviceRequestTxt.setText(String.format(serviceName + "\nDemande " + requestNumber));
                 requestStatusTxt.setText(String.format("Statut de la demande: " + requestStatus));
-                serviceNameTxt.setText(String.format("Nom: " + customerName));
-                serviceLastName.setText(String.format("Prénoms: " + customerLastName));
+                serviceNameTxt.setText(String.format("Prénoms: " + customerName));
+                serviceLastName.setText(String.format("Nom: " + customerLastName));
                 serviceDOB.setText(String.format("Date de naissance: " + customerDateOfBirth));
                 serviceAddress.setText(String.format("Adresse: " + customerAddress));
 

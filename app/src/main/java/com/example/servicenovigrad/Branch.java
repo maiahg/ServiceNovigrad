@@ -1,8 +1,17 @@
 package com.example.servicenovigrad;
 
 public class Branch {
-    String branchUserName, branchPassword, branchName, branchAddress, branchPhoneNumber, branchServices, workingDays, workingHours, branchRating;
+    String branchUserName, branchPassword, branchName, branchAddress, branchPhoneNumber, branchServices, workingDays, workingHours, branchRating, branchRatingCount;
     public Branch(){}
+
+    public String getBranchRatingCount() {
+        return branchRatingCount;
+    }
+
+    public void setBranchRatingCount(String branchRatingCount) {
+        this.branchRatingCount = branchRatingCount;
+    }
+
     public Branch(String branchUserName, String branchPassword, String branchName, String branchPhoneNumber, String branchAddress) {
         this.branchUserName = branchUserName;
         this.branchPassword = branchPassword;

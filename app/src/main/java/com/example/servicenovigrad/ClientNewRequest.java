@@ -106,8 +106,8 @@ public class ClientNewRequest extends AppCompatActivity {
                     if(postSnapshot.child("branchName").getValue().toString().equals(branchName)) {
                         Intent intent = new Intent(ClientNewRequest.this, ClientBranchInfo.class);
                         intent.putExtra("dataBaseID", dataBaseID);
-                        intent.putExtra("branchName", postSnapshot.child("branchName").getValue().toString());
-
+                        intent.putExtra("branchUserName", postSnapshot.getKey());
+                        intent.putExtra("firstName", firstName);
                         startActivity(intent);
                         branchesRef.removeEventListener(this);
                         break;
@@ -124,7 +124,7 @@ public class ClientNewRequest extends AppCompatActivity {
 
     private void getExtraFilter() {
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_customer_extra_filter, null);
+        View dialogView = inflater.inflate(R.layout.dialog_client_extra_filter, null);
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setView(dialogView);
 

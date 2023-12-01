@@ -13,23 +13,21 @@
         android:layout_marginTop="16dp"
         android:text="Les heures de travail: "
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/availableServices"
+        app:layout_constraintEnd_toEndOf="@+id/phoneNumberView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/availableServices"
-        app:layout_constraintTop_toBottomOf="@+id/availableServices" />
+        app:layout_constraintStart_toStartOf="@+id/phoneNumberView"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberView" />
 
     <TextView
         android:id="@+id/servicesTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/availableServices"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/availableServices"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/availableServices"
-        app:layout_constraintTop_toTopOf="@+id/availableServices"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/availableServices"
+        app:layout_constraintTop_toBottomOf="@+id/availableServices" />
 
     <TextView
         android:id="@+id/phoneTxt"
@@ -60,12 +58,13 @@
         android:id="@+id/branchNameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:text="TextView"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView15"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView15" />
 
     <TextView
@@ -74,8 +73,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/mondayTxt"
-        app:layout_constraintStart_toStartOf="@+id/mondayTxt"
+        app:layout_constraintEnd_toEndOf="@+id/workingDaysTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workingDaysTxt"
         app:layout_constraintTop_toBottomOf="@+id/mondayTxt" />
 
     <TextView
@@ -84,8 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tuesdayTxt"
-        app:layout_constraintStart_toStartOf="@+id/tuesdayTxt"
+        app:layout_constraintEnd_toEndOf="@+id/workingDaysTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workingDaysTxt"
         app:layout_constraintTop_toBottomOf="@+id/tuesdayTxt" />
 
     <TextView
@@ -104,12 +105,14 @@
         android:id="@+id/availableServices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
         android:text="Services disponibles: "
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/phoneNumberView"
-        app:layout_constraintStart_toStartOf="@+id/phoneNumberView"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberView" />
+        app:layout_constraintBottom_toBottomOf="@+id/workingDaysTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/workingDaysTxt"
+        app:layout_constraintTop_toTopOf="@+id/workingDaysTxt" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -160,8 +163,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/wednesdayTxt"
-        app:layout_constraintStart_toStartOf="@+id/wednesdayTxt"
+        app:layout_constraintEnd_toEndOf="@+id/workingDaysTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workingDaysTxt"
         app:layout_constraintTop_toBottomOf="@+id/wednesdayTxt" />
 
     <TextView
@@ -170,8 +174,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/thursdayTxt"
-        app:layout_constraintStart_toStartOf="@+id/thursdayTxt"
+        app:layout_constraintEnd_toEndOf="@+id/workingDaysTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workingDaysTxt"
         app:layout_constraintTop_toBottomOf="@+id/thursdayTxt" />
 
     <TextView
@@ -180,8 +185,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/fridayTxt"
-        app:layout_constraintStart_toStartOf="@+id/fridayTxt"
+        app:layout_constraintEnd_toEndOf="@+id/workingDaysTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workingDaysTxt"
         app:layout_constraintTop_toBottomOf="@+id/fridayTxt" />
 
     <TextView
@@ -190,13 +196,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/saturdayTxt"
-        app:layout_constraintStart_toStartOf="@+id/saturdayTxt"
+        app:layout_constraintEnd_toEndOf="@+id/workingDaysTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workingDaysTxt"
         app:layout_constraintTop_toBottomOf="@+id/saturdayTxt" />
 
     <Button
         android:id="@+id/sendRequestBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Envoyer une demande"
@@ -216,5 +223,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.161"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <Button
+        android:id="@+id/rateBtn"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Évaluer cette succursale"
+        app:layout_constraintEnd_toEndOf="@+id/sendRequestBtn"
+        app:layout_constraintStart_toStartOf="@+id/sendRequestBtn"
+        app:layout_constraintTop_toBottomOf="@+id/sendRequestBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,7 @@ public class Employee extends User implements Serializable {
         openingUpdate.put("workingDays", "false, false, false, false, false, false, false");
         openingUpdate.put("workingHours", "N/A, N/A, N/A, N/A, N/A, N/A, N/A");
         openingUpdate.put("branchRating", "0");
+        openingUpdate.put("branchRatingCount", "0, 0");
 
         openingRef.updateChildren(openingUpdate);
 
