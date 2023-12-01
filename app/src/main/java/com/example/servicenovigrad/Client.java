@@ -96,14 +96,11 @@ public class Client extends User implements Serializable {
     }
 
     public boolean isPermitValid(String permit) {
-        if(permit.equals("N/A")) {
+        if (permit.equals("N/A")) {
             return true;
         } else {
             permit = permit.toLowerCase();
-            if (!permit.equals("g1") || !permit.equals("g2") || permit.equals("g")) {
-                return false;
-            }
-            return true;
+            return permit.equals("g1") || permit.equals("g2") || permit.equals("g");
         }
     }
 }

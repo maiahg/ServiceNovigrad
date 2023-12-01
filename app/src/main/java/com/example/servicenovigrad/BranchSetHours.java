@@ -127,6 +127,8 @@ public class BranchSetHours extends AppCompatActivity {
 
                 Intent intent = new Intent(BranchSetHours.this, BranchWorkingHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
 

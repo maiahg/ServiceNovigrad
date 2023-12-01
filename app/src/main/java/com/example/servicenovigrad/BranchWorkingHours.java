@@ -220,6 +220,8 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchSetHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 intent.putExtra("dayToModify", 1);
                 startActivity(intent);
                 finish();
@@ -231,6 +233,8 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchSetHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 intent.putExtra("dayToModify", 2);
                 startActivity(intent);
                 finish();
@@ -242,6 +246,8 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchSetHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 intent.putExtra("dayToModify", 3);
                 startActivity(intent);
                 finish();
@@ -253,6 +259,8 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchSetHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 intent.putExtra("dayToModify", 4);
                 startActivity(intent);
                 finish();
@@ -264,6 +272,8 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchSetHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 intent.putExtra("dayToModify", 5);
                 startActivity(intent);
                 finish();
@@ -275,6 +285,8 @@ public class BranchWorkingHours extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(BranchWorkingHours.this, BranchSetHours.class);
                 intent.putExtra("branchUserName", branchUserName);
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("firstName", firstName);
                 intent.putExtra("dayToModify", 6);
                 startActivity(intent);
                 finish();
