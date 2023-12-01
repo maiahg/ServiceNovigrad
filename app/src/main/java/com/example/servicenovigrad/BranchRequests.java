@@ -28,7 +28,7 @@ public class BranchRequests extends AppCompatActivity {
     ImageButton closeBtn;
     String firstName, branchUserName, branchName, serviceName, customerID, customerName, customerLastName, customerAddress, customerDateOfBirth, customerPermit, requestStatus;
     boolean customerProofOfResidence, customerProofOfStatus, customerPhoto;
-    DatabaseReference requestsRef, servicesRef, userRef;
+    DatabaseReference requestsRef, servicesRef;
     ListView requestsListView;
     ArrayList<String> requests;
     RequestsList requestsAdapter;
@@ -48,7 +48,6 @@ public class BranchRequests extends AppCompatActivity {
 
         requestsRef = FirebaseDatabase.getInstance().getReference("requests");
         servicesRef = FirebaseDatabase.getInstance().getReference("services");
-        userRef = FirebaseDatabase.getInstance().getReference("users");
 
         requestsListView = findViewById(R.id.requestsListView);
         requests = new ArrayList<>();

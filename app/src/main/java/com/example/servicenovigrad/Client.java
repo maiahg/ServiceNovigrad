@@ -10,6 +10,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -50,6 +52,19 @@ public class Client extends User implements Serializable {
 
             }
         });
+    }
+
+    public void deleteRequest(String requestNumber) {
+        requestRef = FirebaseDatabase.getInstance().getReference("requests").child(requestNumber);
+        requestRef.getParent().child(requestNumber).removeValue();
+    }
+    public void rateBranch(String branchUserName, String newBranchRating, String newBranchRatingCount) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("branches").child(branchUserName);
+        Map<String, Object> ratingUpdate = new HashMap<>();
+        ratingUpdate.put("branchRating", newBranchRating);
+        ratingUpdate.put("branchRatingCount", newBranchRatingCount);
+
+        ref.updateChildren(ratingUpdate);
     }
 
     public boolean isNameValid(String name) {

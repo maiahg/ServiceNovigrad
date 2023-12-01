@@ -83,7 +83,6 @@ public class ClientBranchInfo extends AppCompatActivity {
                 String[] branchServicesArray = branchServices.split(", ");
 
                 branchRatingCount = snapshot.child(branchUserName).child("branchRatingCount").getValue().toString();
-                String[] ratingCount = branchRatingCount.split(", ");
 
                 workingDays = snapshot.child(branchUserName).child("workingDays").getValue().toString();
                 String[] workingDaysArray = workingDays.split(", ");
@@ -179,7 +178,7 @@ public class ClientBranchInfo extends AppCompatActivity {
         rateBranchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                rateBranch();
             }
         });
 
@@ -416,6 +415,35 @@ public class ClientBranchInfo extends AppCompatActivity {
                 Toast.makeText(ClientBranchInfo.this, "Demande soumise", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
 
+            }
+        });
+    }
+
+    private void rateBranch() {
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_client_rate_branch, null);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setView(dialogView);
+
+        Button submitReviewBtn = dialogView.findViewById(R.id.submitReview);
+        RatingBar ratingBar = dialogView.findViewById(R.id.ratingBar2);
+        AlertDialog dialog = dialogBuilder.create();
+        dialog.show();
+
+        submitReviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float userRating = ratingBar.getRating();
+                float currentBranchRating = Float.parseFloat(branchRating);
+                long currentRatingCount = Long.parseLong(branchRatingCount);
+
+                float newBranchRating = Float.parseFloat(String.valueOf(Math.round((((currentBranchRating * currentRatingCount) + userRating)/(currentRatingCount + 1)) * 100)/100.0));
+                long newBranchRatingCount = currentRatingCount + 1;
+
+                Client client = new Client();
+                client.rateBranch(branchUserName, String.valueOf(newBranchRating), String.valueOf(newBranchRatingCount));
+                Toast.makeText(ClientBranchInfo.this, "Évaluation soumise", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             }
         });
     }

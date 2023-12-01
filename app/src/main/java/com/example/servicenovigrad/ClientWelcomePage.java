@@ -54,6 +54,7 @@ public class ClientWelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ClientWelcomePage.this, ClientSubmittedRequests.class);
                 intent.putExtra("dataBaseID", dataBaseID);
+                intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
             }
