@@ -3,6 +3,8 @@ package com.example.servicenovigrad;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class RequestTest {
     Requests request = new Requests("-abcdefgh", "Laurier", "Permis de conduire", "Jane", "Doe", "20/11/1994", "123 Laurier", "G1", true, false, false, "en attente");
@@ -24,10 +26,10 @@ public class RequestTest {
 
     @Test
     public void proofOfResidenceTest() {
-        assertEquals(true, request.isProofOfResidenceAttached());
+        assertTrue(request.isProofOfResidenceAttached());
     }
 
     @Test public void proofOfStatusTest() {
-        assertEquals(false, request.isProofOfStatusAttached());
+        assertFalse(request.isProofOfStatusAttached());
     }
 }
