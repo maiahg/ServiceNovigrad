@@ -62,7 +62,7 @@
     <string name="wednesday">Mercredi</string>
     <string name="tuesday">Mardi</string>
     <string name="monday">Lundi</string>
-    <string name="working_hours">Les heurs de travail</string>
+    <string name="working_hours">Les heures de travail</string>
     <string name="select_opening">Sélectionner l\'heure d\'ouverture</string>
     <string name="select_closing">Sélectionner l\'heure de fermeture</string>
     <string name="to">-</string>
