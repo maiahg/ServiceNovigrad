@@ -16,7 +16,7 @@ public class CreateAccountsTest {
         userInfo.add("James");
         userInfo.add("bjames@gmail.com");
         userInfo.add("123Test456");
-        userInfo.add("Employé");
+        userInfo.add("Employee");
 
         User employee = new Employee("Bob", "James", "bjames@gmail.com", "123Test456");
         assertEquals(userInfo.get(0),employee.getFirstName()); // Testing first name
