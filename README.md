@@ -5,7 +5,7 @@
 Service Novigrad is an Android Application that mirrors the functionality of in-person Service Novigrad (an imaginary province service like Service Ontario), letting users access essential services online.
 
 - The application was developed using Java and Android Studio Framework
-- Firebase Realtime Database was used to manage and keep track of all the neccessary data
+- Firebase Realtime Database was used to manage and keep track of all the necessary data
 - CircleCI was used to automate builds and tests
 
 The application supports three types of users: admin, employee and client
@@ -21,7 +21,7 @@ The application supports three types of users: admin, employee and client
 - Client can:
   - Search for a branch by branch name/branch address/available services/opening days
   - View branch information
-  - Send service request to the selected branch
+  - Send service requests to the selected branch
   - Rate the branch
 
 ## Screenshots of Application
@@ -62,7 +62,7 @@ Modify branch opening days and opening hours <br>
 Opening hours can only be updated if the branch is opened on that day <br>
 <br>
 <img src="screenshots/Employee/see_request_homepage.png" alt="See Requests" width="200"> <img src="screenshots/Employee/view_request_details.png" alt="See Request Details" width="200"> <br>
-See requests page with the functions to view the details of each requests and to approve/reject requests </center>
+See requests page with the functions to view the details of each request and to approve/reject requests </center>
 
 ### Client
 <center> <img src="screenshots/Client/client_homepage.png" alt="Client Homepage" width="200"> <br>
@@ -74,5 +74,5 @@ Search for branch by branch name/address/opening days/available services <br>
 <img src="screenshots/Client/branch_info.png" alt="Branch Info" width="200"> <img src="screenshots/Client/send_request.png" alt="Send Request" width="200"> <img src="screenshots/Client/rate_branch.png" alt="Rate branch" width="200"> <br>
 View information of the selected branch, send a request to that branch, and rate that branch <br>
 <br>
-<img src="screenshots/Client/view_submitted_requests.png" alt="Create Services" width="200"> <img src="screenshots/Client/view_request_detail.png" alt="Create Services" width="200"> <br>
-View submitted requests with option to delete them </center>
+<img src="screenshots/Client/view_submitted_requests.png" alt="View Submitted Services" width="200"> <img src="screenshots/Client/view_request_detail.png" alt="View Submitted Services Details" width="200"> <br>
+View submitted requests with the option to delete them </center>
