@@ -22,10 +22,13 @@
         android:id="@+id/rolePicker"
         android:layout_width="145dp"
         android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
         android:entries="@array/roles"
-        app:layout_constraintEnd_toEndOf="@+id/roleTxt"
-        app:layout_constraintStart_toStartOf="@+id/roleTxt"
-        app:layout_constraintTop_toBottomOf="@+id/roleTxt" />
+        app:layout_constraintEnd_toEndOf="@+id/passwordTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/roleTxt"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTxt" />
 
     <EditText
         android:id="@+id/nameTxt"
@@ -43,10 +46,11 @@
         android:id="@+id/roleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="@string/cr_er_ce_compte_comme"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/passwordTxt"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/passwordTxt"
         app:layout_constraintTop_toBottomOf="@+id/passwordTxt" />
 
@@ -104,8 +108,8 @@
         android:text="@string/create_account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/rolePicker"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/rolePicker"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/roleTxt"
         app:layout_constraintTop_toBottomOf="@+id/rolePicker"
         app:layout_constraintVertical_bias="0.0" />
 
