@@ -30,7 +30,7 @@ The application supports three types of users: admin, employee and client
 <img style="center" src="screenshots/login.png" alt="Log in page" width="200"/> <img src="screenshots/signup.png" alr="Sign up page" width="200"> 
 
 ### Admin
-<center> <img src="screenshots/Admin/admin_homepage.png" alt="Admin Homepage" width="200"> <br>
+<img src="screenshots/Admin/admin_homepage.png" alt="Admin Homepage" width="200"> <br>
 Admin Homepage <br>
 <br>
   
@@ -39,10 +39,10 @@ Manage services page with the functions to create a new service, and modify/dele
 <br>
 
 <img src="screenshots/Admin/manage_accounts.png" alt="Manage Accounts Page" width="200"> <img src="screenshots/Admin/delete_accounts.png" alt="Delete Accounts" width="200"> <br>
-Manage accounts page with the function to delete accounts </center>
+Manage accounts page with the function to delete accounts
 
 ### Employee
-<center> <img src="screenshots/Employee/employee_homepage.png" alt="Employee Homepage" width="200"> <br>
+<img src="screenshots/Employee/employee_homepage.png" alt="Employee Homepage" width="200"> <br>
 Employee Homepage <br>
 <br>
   
@@ -68,10 +68,10 @@ Opening hours can only be updated if the branch is opened on that day <br>
 <br>
 
 <img src="screenshots/Employee/see_request_homepage.png" alt="See Requests" width="200"> <img src="screenshots/Employee/view_request_details.png" alt="See Request Details" width="200"> <br>
-See requests page with the functions to view the details of each request and to approve/reject requests </center>
+See requests page with the functions to view the details of each request and to approve/reject requests
 
 ### Client
-<center> <img src="screenshots/Client/client_homepage.png" alt="Client Homepage" width="200"> <br>
+<img src="screenshots/Client/client_homepage.png" alt="Client Homepage" width="200"> <br>
 Client Homepage <br>
 <br>
   
@@ -84,4 +84,4 @@ View information of the selected branch, send a request to that branch, and rate
 <br>
 
 <img src="screenshots/Client/view_submitted_requests.png" alt="View Submitted Services" width="200"> <img src="screenshots/Client/view_request_detail.png" alt="View Submitted Services Details" width="200"> <br>
-View submitted requests with the option to delete them </center>
+View submitted requests with the option to delete them
