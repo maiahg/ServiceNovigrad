@@ -35,7 +35,7 @@
         android:layout_width="133dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:text="Prénom"
+        android:text="Name"
         app:layout_constraintStart_toStartOf="@+id/createRequiredInfo"
         app:layout_constraintTop_toBottomOf="@+id/createRequiredInfo" />
 
@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Nom"
+        android:text="Last Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toEndOf="@+id/prenameBox"

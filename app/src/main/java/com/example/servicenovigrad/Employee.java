@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class Employee extends User implements Serializable {
     Employee() {}
     Employee(String firstName, String lastName, String email, String password) {
-        super(firstName, lastName, email, password, "Employé");
+        super(firstName, lastName, email, password, "Employee");
     }
 
     public void createBranch(String branchUserName, String branchPassword, String branchName, String branchPhoneNumber, String branchAddress) {
@@ -80,7 +80,7 @@ public class Employee extends User implements Serializable {
     public void approveRequest(String requestNumber) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("requests").child(requestNumber);
         Map<String, Object> statusUpdate = new HashMap<>();
-        statusUpdate.put("requestStatus", "approuvé");
+        statusUpdate.put("requestStatus", "Approved");
 
         ref.updateChildren(statusUpdate);
 
@@ -89,7 +89,7 @@ public class Employee extends User implements Serializable {
     public void rejectRequest(String requestNumber) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("requests").child(requestNumber);
         Map<String, Object> statusUpdate = new HashMap<>();
-        statusUpdate.put("requestStatus", "rejeté");
+        statusUpdate.put("requestStatus", "Rejected");
 
         ref.updateChildren(statusUpdate);
 

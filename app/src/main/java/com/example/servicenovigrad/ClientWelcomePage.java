@@ -26,7 +26,7 @@ public class ClientWelcomePage extends AppCompatActivity {
 
         dataBaseID = intent.getStringExtra("dataBaseID");
         firstName = intent.getStringExtra("firstName");
-        welcomeTxt.setText(String.format("Bienvenue " + firstName + "!"));
+        welcomeTxt.setText(String.format("Welcome " + firstName + "!"));
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +34,7 @@ public class ClientWelcomePage extends AppCompatActivity {
                Intent intent = new Intent(ClientWelcomePage.this, Login.class);
                startActivity(intent);
                finish();
-               Toast.makeText(ClientWelcomePage.this, "Déconnexion réussie", Toast.LENGTH_SHORT).show();
+               Toast.makeText(ClientWelcomePage.this, "You have logged out successfully", Toast.LENGTH_SHORT).show();
             }
         });
 

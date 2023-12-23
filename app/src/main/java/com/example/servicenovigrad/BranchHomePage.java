@@ -50,7 +50,7 @@ public class BranchHomePage extends AppCompatActivity {
                 intent.putExtra("firstName", firstName);
                 startActivity(intent);
                 finish();
-                Toast.makeText(BranchHomePage.this, "Déconnexion réussie", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BranchHomePage.this, "You have logged out successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -141,25 +141,25 @@ public class BranchHomePage extends AppCompatActivity {
 
                 // Empty error handling
                 if (newBranchName.isEmpty()) {
-                    modifyBranchName.setError("Nom de la succursale requis");
+                    modifyBranchName.setError("Branch  required");
                     return;
                 } if (newBranchNumber.isEmpty()) {
-                    modifyBranchNumber.setError("Numéro de téléphone requis");
+                    modifyBranchNumber.setError("Phone number required");
                     return;
                 } if (newBranchAddress.isEmpty()) {
-                    modifyBranchAddress.setError("Adresse requise");
+                    modifyBranchAddress.setError("Address required");
                     return;
                 }
 
                 // Invalid handling
                 if (!employee.isNameAndAddressValid(newBranchName)) {
-                    modifyBranchName.setError("Nom de la succursale invalid");
+                    modifyBranchName.setError("Invalid branch name");
                     return;
                 } if (!employee.isPhoneNumberValid(newBranchNumber)) {
-                    modifyBranchNumber.setError("Numéro de téléphone invalid");
+                    modifyBranchNumber.setError("Invalid phone number");
                     return;
                 } if (!employee.isNameAndAddressValid(newBranchAddress)) {
-                    modifyBranchAddress.setError("Adrese invalide");
+                    modifyBranchAddress.setError("Invalid address");
                     return;
                 }
 
@@ -167,7 +167,7 @@ public class BranchHomePage extends AppCompatActivity {
                 employee.modifyBranchProfile(branchUserName, newBranchName, newBranchNumber, newBranchAddress);
 
                 dialog.dismiss();
-                Toast.makeText(BranchHomePage.this, "Profil de la succursale modifié", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BranchHomePage.this, "Branch profile modified successfully", Toast.LENGTH_SHORT).show();
 
             }
         });

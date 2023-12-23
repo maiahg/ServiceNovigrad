@@ -154,56 +154,56 @@ public class BranchRequests extends AppCompatActivity {
                     }
                 }
 
-                serviceRequestTxt.setText(String.format(serviceName + "\nDemande " + requestNumber));
-                requestStatusTxt.setText(String.format("Statut de la demande: " + requestStatus));
-                serviceNameTxt.setText(String.format("Prénoms: " + customerName));
-                serviceLastName.setText(String.format("Nom: " + customerLastName));
-                serviceDOB.setText(String.format("Date de naissance: " + customerDateOfBirth));
-                serviceAddress.setText(String.format("Adresse: " + customerAddress));
+                serviceRequestTxt.setText(String.format(serviceName + "\nRequest " + requestNumber));
+                requestStatusTxt.setText(String.format("Request Status: " + requestStatus));
+                serviceNameTxt.setText(String.format("First Name: " + customerName));
+                serviceLastName.setText(String.format("Last Name: " + customerLastName));
+                serviceDOB.setText(String.format("Date of birth: " + customerDateOfBirth));
+                serviceAddress.setText(String.format("Address: " + customerAddress));
 
                 if(permitRequired[0]) {
 
                     if (!customerPermit.equals("N/A")) {
-                        servicePermit.setText(String.format("Type de permis: " + customerPermit));
+                        servicePermit.setText(String.format("License type: " + customerPermit));
                     } else {
                         servicePermit.setTextColor(Color.RED);
-                        servicePermit.setText(String.format("Type de permis: NON SOUMIS"));
+                        servicePermit.setText(String.format("License type: NOT SUBMITTED"));
                     }
                 } else {
-                    servicePermit.setText(String.format("Type de permis: NON REQUIS"));
+                    servicePermit.setText(String.format("License type: NOT REQUIRED"));
                 }
 
                 if (proofOfResidenceRequired[0]) {
                     if (customerProofOfResidence) {
-                        proofOfRes.setText(String.format("Preuve de domicile: SOUMIS"));
+                        proofOfRes.setText(String.format("Proof of Residency: SUBMITTED"));
                     } else {
                         proofOfRes.setTextColor(Color.RED);
-                        proofOfRes.setText(String.format("Preuve de domicile: NON SOUMIS"));
+                        proofOfRes.setText(String.format("Proof of Residency: NOT SUBMITTED"));
                     }
                 } else {
-                    proofOfRes.setText(String.format("Preuve de domicile: NON REQUIS"));
+                    proofOfRes.setText(String.format("Proof of Residency: NOT REQUIRED"));
                 }
 
                 if (proofOfStatusRequired[0]) {
                     if (customerProofOfStatus) {
-                        proofOfStatus.setText(String.format("Preuve de statut: SOUMIS"));
+                        proofOfStatus.setText(String.format("Proof of Status: SUBMITTED"));
                     } else {
                         proofOfStatus.setTextColor(Color.RED);
-                        proofOfStatus.setText(String.format("Preuve de statut: NON SOUMIS"));
+                        proofOfStatus.setText(String.format("Proof of Status: NOT SUBMITTED"));
                     }
                 } else {
-                    proofOfStatus.setText(String.format("Preuve de statut: NON REQUIS"));
+                    proofOfStatus.setText(String.format("Proof of Status: NOT REQUIRED"));
                 }
 
                 if (photoRequired[0]) {
                     if (customerPhoto) {
-                        photoProof.setText(String.format("Photo du client: SOUMIS"));
+                        photoProof.setText(String.format("Client's photo: SUBMITTED"));
                     } else {
                         photoProof.setTextColor(Color.RED);
-                        photoProof.setText(String.format("Photo du client: NON SOUMIS"));
+                        photoProof.setText(String.format("Client's photo: NOT SUBMITTED"));
                     }
                 } else {
-                    photoProof.setText(String.format("Photo du client: NON REQUIS"));
+                    photoProof.setText(String.format("Client's photo: NOT REQUIRED"));
                 }
             }
 
@@ -222,7 +222,7 @@ public class BranchRequests extends AppCompatActivity {
                 String actualRequestNumber = requestNumber.split("#")[1];
 
                 employee.approveRequest(actualRequestNumber);
-                Toast.makeText(BranchRequests.this, "Demande approuvée", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BranchRequests.this, "Request Approved", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
@@ -233,7 +233,7 @@ public class BranchRequests extends AppCompatActivity {
                 String actualRequestNumber = requestNumber.split("#")[1];
 
                 employee.rejectRequest(actualRequestNumber);
-                Toast.makeText(BranchRequests.this, "Demande rejetée", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BranchRequests.this, "Request Rejected", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

@@ -54,7 +54,7 @@ public class Register extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getApplicationContext(), "Veuillez sélectionner un type d'utilisateur", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please select a role", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -71,19 +71,19 @@ public class Register extends AppCompatActivity {
 
                 // Empty error
                 if (firstNameString.isEmpty() || lastNameString.isEmpty() || emailString.isEmpty() || passwordString.isEmpty() ) {
-                    Toast.makeText(Register.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 // Check if email is valid
                 if (!isEmailValid(emailString)) {
-                    Toast.makeText(Register.this, "Email invalide", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Invalid email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 // Check if first name and last is valid
                 if (!isNameValid(firstNameString) || !isNameValid(lastNameString) ) {
-                    Toast.makeText(Register.this, "Nom ou Prénoms invalides", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Invalid Name/Last Name", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -92,7 +92,7 @@ public class Register extends AppCompatActivity {
                        user = new Client(firstNameString, lastNameString, emailString, passwordString);
                        break;
 
-                   case "Employé":
+                   case "Employee":
                        user = new Employee(firstNameString, lastNameString, emailString, passwordString);
                        break;
                }
@@ -102,7 +102,7 @@ public class Register extends AppCompatActivity {
                 user.setDataBaseID(nodeKey);
                 newNode.setValue(user);
 
-                Toast.makeText(Register.this, "Compte créé avec succès", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Register.this, Login.class);
                 startActivity(intent);
 

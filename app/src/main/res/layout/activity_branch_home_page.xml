@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/modifyProfileBtn"
-        android:layout_width="240dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/modify_profile"
@@ -40,7 +40,7 @@
 
     <Button
         android:id="@+id/modifyServiceBtn"
-        android:layout_width="240dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/modify_services"
@@ -50,7 +50,7 @@
 
     <Button
         android:id="@+id/modifyWorkingHoursBtn"
-        android:layout_width="240dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/modify_working_hours"
@@ -60,7 +60,7 @@
 
     <Button
         android:id="@+id/viewRequestBtn"
-        android:layout_width="240dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/see_requests"
@@ -70,10 +70,10 @@
 
     <Button
         android:id="@+id/logOutBtn"
-        android:layout_width="240dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/se_deconnecter"
+        android:text="@string/log_out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/viewRequestBtn"
         app:layout_constraintHorizontal_bias="0.0"

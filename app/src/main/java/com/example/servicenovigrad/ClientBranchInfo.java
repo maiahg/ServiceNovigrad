@@ -79,8 +79,21 @@ public class ClientBranchInfo extends AppCompatActivity {
                 branchPhoneNumber = snapshot.child(branchUserName).child("branchPhoneNumber").getValue().toString();
                 branchRating = snapshot.child(branchUserName).child("branchRating").getValue().toString();
 
-                branchServices = snapshot.child(branchUserName).child("branchServices").getValue().toString();
-                String[] branchServicesArray = branchServices.split(", ");
+                if (snapshot.child(branchUserName).child("branchServices").getValue() == null) {
+                    branchServicesView.setText("N/A");
+                } else {
+                    branchServices = snapshot.child(branchUserName).child("branchServices").getValue().toString();
+                    String[] branchServicesArray = branchServices.split(", ");
+                    for(int i = 0; i < branchServicesArray.length; i++) {
+                        if(i == 0) {
+                            servicesTxt = branchServicesArray[0];
+                        } else {
+                            servicesTxt = servicesTxt + "\n" + branchServicesArray[i];
+                        }
+                    }
+
+                    branchServicesView.setText(servicesTxt);
+                }
 
                 branchRatingCount = snapshot.child(branchUserName).child("branchRatingCount").getValue().toString();
 
@@ -95,56 +108,46 @@ public class ClientBranchInfo extends AppCompatActivity {
                 branchPhoneNumberView.setText(branchPhoneNumber);
                 ratingBar.setRating(Float.parseFloat(branchRating));
 
-                for(int i = 0; i < branchServicesArray.length; i++) {
-                    if(i == 0) {
-                        servicesTxt = branchServicesArray[0];
-                    } else {
-                        servicesTxt = servicesTxt + "\n" + branchServicesArray[i];
-                    }
-                }
-
-                branchServicesView.setText(servicesTxt);
-
                 if (Objects.equals(workingDaysArray[0], "true")) {
-                    mondayHours.setText(String.format("Lundi: " + workingHoursArray[0]));
+                    mondayHours.setText(String.format("Monday: " + workingHoursArray[0]));
                 } else {
-                    mondayHours.setText("Lundi: Fermé");
+                    mondayHours.setText("Monday: Closed");
                 }
 
                 if (Objects.equals(workingDaysArray[1], "true")) {
-                    tuesdayHours.setText(String.format("Mardi: " + workingHoursArray[1]));
+                    tuesdayHours.setText(String.format("Tuesday: " + workingHoursArray[1]));
                 } else {
-                    tuesdayHours.setText("Mardi: Fermé");
+                    tuesdayHours.setText("Tuesday: Closed");
                 }
 
                 if (Objects.equals(workingDaysArray[2], "true")) {
-                    wednesdayHours.setText(String.format("Mercredi: " + workingHoursArray[2]));
+                    wednesdayHours.setText(String.format("Wednesday: " + workingHoursArray[2]));
                 } else {
-                    wednesdayHours.setText("Mercredi: Fermé");
+                    wednesdayHours.setText("Wednesday: Closed");
                 }
 
                 if (Objects.equals(workingDaysArray[3], "true")) {
-                    thursdayHours.setText(String.format("Jeudi: " + workingHoursArray[3]));
+                    thursdayHours.setText(String.format("Thursday: " + workingHoursArray[3]));
                 } else {
-                    thursdayHours.setText("Jeudi: Fermé");
+                    thursdayHours.setText("Thursday: Closed");
                 }
 
                 if (Objects.equals(workingDaysArray[4], "true")) {
-                    fridayHours.setText(String.format("Vendredi: " + workingHoursArray[4]));
+                    fridayHours.setText(String.format("Friday: " + workingHoursArray[4]));
                 } else {
-                    fridayHours.setText("Vendredi: Fermé");
+                    fridayHours.setText("Friday: Closed");
                 }
 
                 if (Objects.equals(workingDaysArray[5], "true")) {
-                    saturdayHours.setText(String.format("Samedi: " + workingHoursArray[5]));
+                    saturdayHours.setText(String.format("Saturday: " + workingHoursArray[5]));
                 } else {
-                    saturdayHours.setText("Samedi: Fermé");
+                    saturdayHours.setText("Saturday: Closed");
                 }
 
                 if (Objects.equals(workingDaysArray[6], "true")) {
-                    sundayHours.setText(String.format("Dimanche: " + workingHoursArray[6]));
+                    sundayHours.setText(String.format("Sunday: " + workingHoursArray[6]));
                 } else {
-                    sundayHours.setText("Dimanche: Fermé");
+                    sundayHours.setText("Sunday: Closed");
                 }
 
                 branchRef.removeEventListener(this);
@@ -171,7 +174,11 @@ public class ClientBranchInfo extends AppCompatActivity {
         sendRequestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRequestForm();
+                if (branchServicesView.getText().toString() == "N/A") {
+                    Toast.makeText(ClientBranchInfo.this, "Cannot send requests to this branch", Toast.LENGTH_SHORT).show();
+                } else {
+                    openRequestForm();
+                }
             }
         });
 
@@ -205,9 +212,9 @@ public class ClientBranchInfo extends AppCompatActivity {
         TextView resProof = dialogView.findViewById(R.id.resProof);
         TextView statusProof = dialogView.findViewById(R.id.statusProof);
         TextView photoTxt = dialogView.findViewById(R.id.photoTxt);
-        Button uploadRes = dialogView.findViewById(R.id.uploadRes);
-        Button uploadStatus = dialogView.findViewById(R.id.uploadStatus);
-        Button uploadPhoto = dialogView.findViewById(R.id.uploadPhoto);
+        TextView uploadRes = dialogView.findViewById(R.id.uploadRes);
+        TextView uploadStatus = dialogView.findViewById(R.id.uploadStatus);
+        TextView uploadPhoto = dialogView.findViewById(R.id.uploadPhoto);
         Button submitRequestBtn = dialogView.findViewById(R.id.submitRequestBtn);
 
         String[] serviceName = new String[1];
@@ -248,51 +255,51 @@ public class ClientBranchInfo extends AppCompatActivity {
                         photoRequired[0] = Boolean.parseBoolean(snapshot.child(serviceName[0]).child("photo").getValue().toString());
 
                         if(lastNameRequired[0]) {
-                            lastName.setHint("Votre nom (requis)");
+                            lastName.setHint("Last Name (required)");
                         } else {
-                            lastName.setHint("Votre nom (non requis)");
+                            lastName.setHint("Last Name (not required)");
                         }
 
                         if(nameRequired[0]) {
-                            name.setHint("Vos prénoms (requis)");
+                            name.setHint("Name (required)");
                         } else {
-                            name.setHint("Vos prénoms (non requis)");
+                            name.setHint("Name (not required)");
                         }
 
                         if(dobRequired[0]) {
-                            dob.setHint("Votre date de naissance (requis)");
+                            dob.setHint("Date of Birth (required)");
                         } else {
-                            dob.setHint("Votre date de naissance (non requis)");
+                            dob.setHint("Date of Birth (not required)");
                         }
 
                         if(addressRequired[0]) {
-                            address.setHint("Votre adresse (requis)");
+                            address.setHint("Address (required)");
                         } else {
-                            address.setHint("Votre adresse (non requis)");
+                            address.setHint("Address (not required)");
                         }
 
                         if(permitRequired[0]) {
-                            permit.setHint("Votre type de permis (requis)");
+                            permit.setHint("License type (required)");
                         } else {
-                            permit.setHint("Votre type de permis (non requis)");
+                            permit.setHint("License type (not required)");
                         }
 
                         if(proofOfResidenceRequired[0]) {
-                            resProof.setText("Preuve de domicile (requis)");
+                            resProof.setText("Proof of Residency (required)");
                         } else {
-                            resProof.setText("Preuve de domicile (non requis)");
+                            resProof.setText("Proof of Residency (not required)");
                         }
 
                         if(proofOfStatusRequired[0]) {
-                            statusProof.setText("Preuve de statut (requis)");
+                            statusProof.setText("Proof of Status (required)");
                         } else {
-                            statusProof.setText("Preuve de statut (non requis)");
+                            statusProof.setText("Proof of Status (not required)");
                         }
 
                         if(photoRequired[0]) {
-                            photoTxt.setText("Votre photo (requis)");
+                            photoTxt.setText("Your photo (required)");
                         } else {
-                            photoTxt.setText("Votre photo (non requis)");
+                            photoTxt.setText("Your photo (not required)");
                         }
                     }
 
@@ -351,7 +358,7 @@ public class ClientBranchInfo extends AppCompatActivity {
                 // Empty handling
                 if(nameRequired[0]) {
                     if(customerName.isEmpty()) {
-                        name.setError("Vos prénoms sont requis");
+                        name.setError("Your name is required");
                         return;
                     }
                 } else {
@@ -360,7 +367,7 @@ public class ClientBranchInfo extends AppCompatActivity {
 
                 if(lastNameRequired[0]) {
                     if(customerLastName.isEmpty()) {
-                        lastName.setError("Votre nom est requis");
+                        lastName.setError("Your last name is required");
                         return;
                     }
                 } else {
@@ -369,7 +376,7 @@ public class ClientBranchInfo extends AppCompatActivity {
 
                 if(dobRequired[0]) {
                     if(customerDateOfBirth.isEmpty()) {
-                        dob.setError("Votre date de naissance est requise");
+                        dob.setError("Your date of birth is required");
                         return;
                     }
                 } else {
@@ -378,7 +385,7 @@ public class ClientBranchInfo extends AppCompatActivity {
 
                 if(addressRequired[0]) {
                     if(customerAddress.isEmpty()) {
-                        address.setError("Votre adresse est requise");
+                        address.setError("Your address is required");
                         return;
                     }
                 } else {
@@ -387,7 +394,7 @@ public class ClientBranchInfo extends AppCompatActivity {
 
                 if(permitRequired[0]) {
                     if(customerPermit.isEmpty()) {
-                        permit.setError("Votre type de permis est requis");
+                        permit.setError("Your license type is required");
                         return;
                     }
                 } else {
@@ -396,23 +403,23 @@ public class ClientBranchInfo extends AppCompatActivity {
 
                 // Invalid handling
                 if (!client.isNameValid(customerName)) {
-                    name.setError("Invalide");
+                    name.setError("Invalid");
                     return;
                 } if(!client.isNameValid(customerLastName)) {
-                    lastName.setError("Invalide");
+                    lastName.setError("Invalid");
                     return;
                 } if(!client.isAddressValid(customerAddress)) {
-                    address.setError("Invalide");
+                    address.setError("Invalid");
                     return;
                 } if(!client.isPermitValid(customerPermit)) {
-                    permit.setError("Invalide");
+                    permit.setError("Invalid");
                     return;
                 }
 
-                Requests requests = new Requests(dataBaseID, branchName, serviceName[0],customerName, customerLastName, customerDateOfBirth, customerAddress, customerPermit, resProofAttached, statusProofAttached, photoProofAttached, "en attente");
+                Requests requests = new Requests(dataBaseID, branchName, serviceName[0],customerName, customerLastName, customerDateOfBirth, customerAddress, customerPermit, resProofAttached, statusProofAttached, photoProofAttached, "Pending");
 
                 client.submitRequest(requests);
-                Toast.makeText(ClientBranchInfo.this, "Demande soumise", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ClientBranchInfo.this, "Request Submitted", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
 
             }
@@ -442,7 +449,7 @@ public class ClientBranchInfo extends AppCompatActivity {
 
                 Client client = new Client();
                 client.rateBranch(branchUserName, String.valueOf(newBranchRating), String.valueOf(newBranchRatingCount));
-                Toast.makeText(ClientBranchInfo.this, "Évaluation soumise", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ClientBranchInfo.this, "Review Submitted", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

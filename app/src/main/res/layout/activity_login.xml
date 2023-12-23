@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login">
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="140dp"
-        android:text="@string/se_connecter"
+        android:text="@string/log_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/enterPassword"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/enterPassword"
         app:layout_constraintTop_toBottomOf="@+id/enterPassword"
-        app:layout_constraintVertical_bias="0.431" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/enterPassword"
@@ -72,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:text="@string/pas_encore_de_compte"
+        android:text="@string/no_account"
         android:textColor="#2196F3"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

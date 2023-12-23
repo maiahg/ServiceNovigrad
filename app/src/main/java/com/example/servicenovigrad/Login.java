@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
 
                 // Empty error
                 if (emailString.isEmpty() || passwordString.isEmpty() ) {
-                    Toast.makeText(Login.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
                     checkUser();
                 }
@@ -90,17 +90,17 @@ public class Login extends AppCompatActivity {
                                     startActivity(intentC);
                                     break;
 
-                                case "Employé":
+                                case "Employee":
                                     Intent intentE = new Intent(Login.this, EmployeeWelcomePage.class);
                                     intentE.putExtra("firstName", user.getFirstName());
                                     startActivity(intentE);
                             }
                         } else {
-                            Toast.makeText(Login.this, "Mot de passe incorrect", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Incorrect password", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } else {
-                    Toast.makeText(Login.this, "Le compte n'existe pas", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Account does not exist", Toast.LENGTH_SHORT).show();
                 }
             }
 

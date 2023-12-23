@@ -103,12 +103,12 @@ public class ManageAccounts extends AppCompatActivity {
             public void onClick(View view) {
                 if (user.getRole().equals("Admin")) {
                     dialog.dismiss();
-                    Toast.makeText(ManageAccounts.this, "Les comptes administrateur ne peuvent pas être supprimés!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ManageAccounts.this, "Admin account cannot be deleted!",Toast.LENGTH_SHORT).show();
                 } else {
                     admin.deleteAccount(user.getDataBaseID());
                     dialog.dismiss();
 
-                    Toast.makeText(ManageAccounts.this, "Compte supprimé",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ManageAccounts.this, "Account deleted",Toast.LENGTH_SHORT).show();
                 }
             }
         });

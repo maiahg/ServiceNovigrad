@@ -176,13 +176,13 @@ public class ManageServices extends AppCompatActivity {
                 String newServiceName = editServiceName.getText().toString().trim();
 
                 if(newServiceName.isEmpty()) {
-                    editServiceName.setError("Le nom de service est requis");
+                    editServiceName.setError("Service name is required");
                 } else {
                     admin.editService(serviceName, newServiceName, preNameEdit, nameEdit, dobEdit, addressEdit, permitEdit, residenceEdit, statusEdit, photoEdit);
                     dialog.dismiss();
 
 
-                    Toast.makeText(ManageServices.this, "Service modifié", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ManageServices.this, "Service modified", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -193,7 +193,7 @@ public class ManageServices extends AppCompatActivity {
                 admin.deleteService(serviceName);
                 dialog.dismiss();
 
-                Toast.makeText(ManageServices.this, "Service supprimé", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ManageServices.this, "Service deleted", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -230,12 +230,12 @@ public class ManageServices extends AppCompatActivity {
 
                if (serviceNameString.isEmpty()) {
 
-                   serviceNameEdt.setError("Le nom de service est requis");
+                   serviceNameEdt.setError("Service name required");
                } else {
                    admin.createService(serviceNameString, prenameBox,nameBox, dobBox, addressBox, permitBox, residenceBox, statusBox, photoBox);
                    dialog.dismiss();
 
-                   Toast.makeText(ManageServices.this, "Service créé", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(ManageServices.this, "Service created", Toast.LENGTH_SHORT).show();
                }
            }
         });

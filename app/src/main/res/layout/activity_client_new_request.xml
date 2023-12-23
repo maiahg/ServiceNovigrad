@@ -50,6 +50,7 @@
         android:ems="10"
         android:hint="@string/branch_address"
         android:inputType="textPostalAddress"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/branchNameEdt"
         app:layout_constraintStart_toStartOf="@+id/branchNameEdt"
         app:layout_constraintTop_toBottomOf="@+id/branchNameEdt" />
@@ -59,7 +60,7 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Filtre additionnel"
+        android:text="Additional filter"
         app:layout_constraintEnd_toEndOf="@+id/branchAddressEdt"
         app:layout_constraintStart_toStartOf="@+id/branchAddressEdt"
         app:layout_constraintTop_toBottomOf="@+id/branchAddressEdt" />
@@ -69,7 +70,7 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Rechercher"
+        android:text="Search"
         app:layout_constraintEnd_toEndOf="@+id/extraFilterBtn"
         app:layout_constraintStart_toStartOf="@+id/extraFilterBtn"
         app:layout_constraintTop_toBottomOf="@+id/extraFilterBtn" />

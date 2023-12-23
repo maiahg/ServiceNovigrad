@@ -91,7 +91,7 @@ public class BranchSetHours extends AppCompatActivity {
                 int style = AlertDialog.THEME_HOLO_LIGHT;
                 TimePickerDialog timePickerDialog = new TimePickerDialog(BranchSetHours.this, style, onTimeSetListener, openingHour, openingMinute, true);
 
-                timePickerDialog.setTitle("Sélectionner l'heure d'ouverture");
+                timePickerDialog.setTitle("Select opening time");
                 timePickerDialog.show();
             }
         });
@@ -110,7 +110,7 @@ public class BranchSetHours extends AppCompatActivity {
                 int style = AlertDialog.THEME_HOLO_LIGHT;
                 TimePickerDialog timePickerDialog = new TimePickerDialog(BranchSetHours.this, style, onTimeSetListener, closingHour, closingMinute, true);
 
-                timePickerDialog.setTitle("Sélectionner l'heure de fermeture");
+                timePickerDialog.setTitle("Select closing time");
                 timePickerDialog.show();
             }
         });
@@ -132,7 +132,7 @@ public class BranchSetHours extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-                Toast.makeText(BranchSetHours.this, "Les heures de travail mis à jour", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BranchSetHours.this, "Opening hours updated", Toast.LENGTH_SHORT).show();
             }
         });
     }

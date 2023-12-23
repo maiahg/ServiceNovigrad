@@ -28,7 +28,7 @@ public class AccountList extends ArrayAdapter<User> {
         TextView accountRole = listViewItem.findViewById(R.id.roleAccount);
 
         User user = users.get(position);
-        accountName.setText(user.getFirstName() + " " + user.getLastName());
+        accountName.setText(String.format(user.getFirstName() + " " + user.getLastName()));
         accountRole.setText(user.getRole());
         return listViewItem;
     }

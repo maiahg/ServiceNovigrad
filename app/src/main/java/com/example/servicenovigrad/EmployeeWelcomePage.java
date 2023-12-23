@@ -41,7 +41,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
         Intent intent = getIntent();
         firstName = intent.getStringExtra("firstName");
 
-        welcomeTxt.setText(String.format("Bienvenue " + firstName + "!"));
+        welcomeTxt.setText(String.format("Welcome " + firstName + "!"));
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +49,7 @@ public class EmployeeWelcomePage extends AppCompatActivity {
                 Intent intent = new Intent(EmployeeWelcomePage.this, Login.class);
                 startActivity(intent);
                 finish();
-                Toast.makeText(EmployeeWelcomePage.this, "Déconnexion réussie", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EmployeeWelcomePage.this, "You have logged out successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -99,41 +99,41 @@ public class EmployeeWelcomePage extends AppCompatActivity {
 
                 // Empty error handling
                 if (userName.isEmpty()) {
-                    branchUserName.setError("Nom d'utilisateur requis");
+                    branchUserName.setError("Username required");
                     return;
                 } if (password.isEmpty()) {
-                    branchPassword.setError("Mot de passe requis");
+                    branchPassword.setError("Password required");
                     return;
                 } if (name.isEmpty()) {
-                    branchName.setError("Nom de la succursale requis");
+                    branchName.setError("Branch  required");
                     return;
                 } if (phoneNumber.isEmpty()) {
-                    branchPhoneNumber.setError("Numéro de téléphone requis");
+                    branchPhoneNumber.setError("Phone number required");
                     return;
                 } if (address.isEmpty()) {
-                    branchAddress.setError("Adresse requise");
+                    branchAddress.setError("Address required");
                     return;
                 }
 
                 // Invalid handling
                 if (!employee.isUserNameValid(userName)) {
-                    branchUserName.setError("Nom d'utilisateur invalid");
+                    branchUserName.setError("Invalid username");
                     return;
                 } if (!employee.isNameAndAddressValid(name)) {
-                    branchName.setError("Nom de la succursale invalid");
+                    branchName.setError("Invalid branch name");
                     return;
                 } if (!employee.isPhoneNumberValid(phoneNumber)) {
-                    branchPhoneNumber.setError("Numéro de téléphone invalid");
+                    branchPhoneNumber.setError("Invalid phone number");
                     return;
                 } if (!employee.isNameAndAddressValid(address)) {
-                    branchAddress.setError("Adresse invalide");
+                    branchAddress.setError("Invalid address");
                     return;
                 }
 
                 employee.createBranch(userName, password, name, phoneNumber, address);
                 dialog.dismiss();
 
-                Toast.makeText(EmployeeWelcomePage.this, "Compte pour la succursale crée", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EmployeeWelcomePage.this, "Branch account created", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -161,9 +161,9 @@ public class EmployeeWelcomePage extends AppCompatActivity {
 
                 // Empty error handling
                 if (branchUserName.isEmpty()) {
-                    userName.setError("Nom d'utilisateur requis");
+                    userName.setError("Username required");
                 } else if (branchPassword.isEmpty()) {
-                    password.setError("Mot de passe requis");
+                    password.setError("Password required");
                 } else {
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("branches");
                     Query checkBranchDatabase = reference.orderByChild("branchUserName").equalTo(branchUserName);
@@ -184,11 +184,11 @@ public class EmployeeWelcomePage extends AppCompatActivity {
                                         startActivity(intent);
                                         finish();
                                     } else {
-                                        password.setError("Mot de passe incorrect");
+                                        password.setError("Incorrect password");
                                     }
                                 }
                             } else {
-                                userName.setError("Le compte n'existe pas");
+                                userName.setError("Account does not exist");
                             }
                         }
                         @Override

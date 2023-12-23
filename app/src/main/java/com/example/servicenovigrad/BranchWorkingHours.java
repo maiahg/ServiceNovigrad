@@ -83,47 +83,47 @@ public class BranchWorkingHours extends AppCompatActivity {
 
                 currentWorkingHours = snapshot.child(branchUserName).child("workingHours").getValue().toString();
                 String[] workingHours = currentWorkingHours.split(", ");
-                currentHoursMon.setText(String.format("Les heures de travail: " + workingHours[0]));
-                currentHoursTues.setText(String.format("Les heures de travail: " + workingHours[1]));
-                currentHoursWed.setText(String.format("Les heures de travail: " + workingHours[2]));
-                currentHoursThurs.setText(String.format("Les heures de travail: " + workingHours[3]));
-                currentHoursFri.setText(String.format("Les heures de travail: " + workingHours[4]));
-                currentHoursSat.setText(String.format("Les heures de travail: " + workingHours[5]));
-                currentHoursSun.setText(String.format("Les heures de travail: " + workingHours[6]));
+                currentHoursMon.setText(String.format("Opening hours: " + workingHours[0]));
+                currentHoursTues.setText(String.format("Opening hours: " + workingHours[1]));
+                currentHoursWed.setText(String.format("Opening hours: " + workingHours[2]));
+                currentHoursThurs.setText(String.format("Opening hours: " + workingHours[3]));
+                currentHoursFri.setText(String.format("Opening hours: " + workingHours[4]));
+                currentHoursSat.setText(String.format("Opening hours: " + workingHours[5]));
+                currentHoursSun.setText(String.format("Opening hours: " + workingHours[6]));
 
                 if(!monBox.isChecked()) {
                     modifyMon.setVisibility(View.INVISIBLE);
-                    currentHoursMon.setText(String.format("La succursale est fermée"));}
+                    currentHoursMon.setText(String.format("Closed"));}
                 else {modifyMon.setVisibility(View.VISIBLE);}
 
                 if(!tuesBox.isChecked()) {
                     modifyTues.setVisibility(View.INVISIBLE);
-                    currentHoursTues.setText(String.format("La succursale est fermée"));}
+                    currentHoursTues.setText(String.format("Closed"));}
                 else {modifyTues.setVisibility(View.VISIBLE);}
 
                 if(!wedBox.isChecked()) {
                     modifyWed.setVisibility(View.INVISIBLE);
-                    currentHoursWed.setText(String.format("La succursale est fermée"));}
+                    currentHoursWed.setText(String.format("Closed"));}
                 else {modifyWed.setVisibility(View.VISIBLE);}
 
                 if(!thursBox.isChecked()) {
                     modifyThurs.setVisibility(View.INVISIBLE);
-                    currentHoursThurs.setText(String.format("La succursale est fermée"));}
+                    currentHoursThurs.setText(String.format("Closed"));}
                 else {modifyThurs.setVisibility(View.VISIBLE);}
 
                 if(!friBox.isChecked()) {
                     modifyFri.setVisibility(View.INVISIBLE);
-                    currentHoursFri.setText(String.format("La succursale est fermée"));}
+                    currentHoursFri.setText(String.format("Closed"));}
                 else {modifyFri.setVisibility(View.VISIBLE);}
 
                 if(!satBox.isChecked()) {
                     modifySat.setVisibility(View.INVISIBLE);
-                    currentHoursSat.setText(String.format("La succursale est fermée"));}
+                    currentHoursSat.setText(String.format("Closed"));}
                 else {modifySat.setVisibility(View.VISIBLE);}
 
                 if(!sunBox.isChecked()) {
                     modifySun.setVisibility(View.INVISIBLE);
-                    currentHoursSun.setText(String.format("La succursale est fermée"));}
+                    currentHoursSun.setText(String.format("Closed"));}
                 else {modifySun.setVisibility(View.VISIBLE);}
             }
 

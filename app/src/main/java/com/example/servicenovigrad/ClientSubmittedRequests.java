@@ -148,57 +148,57 @@ public class ClientSubmittedRequests extends AppCompatActivity {
                     }
                 }
 
-                requestName.setText(String.format(serviceName + "\nDemande " + requestNumber));
-                statusTxt.setText(String.format("Statut de la demande: " + requestStatus));
-                branchNameView.setText(String.format("Nom de la succursale: " + branchName));
-                name.setText(String.format("Prénoms: " + customerName));
-                lastName.setText(String.format("Nom: " + customerLastName));
-                dob.setText(String.format("Date de naissance: " + customerDateOfBirth));
-                address.setText(String.format("Adresse: " + customerAddress));
+                requestName.setText(String.format(serviceName + "\nRequest " + requestNumber));
+                statusTxt.setText(String.format("Request Status: " + requestStatus));
+                branchNameView.setText(String.format("Branch name: " + branchName));
+                name.setText(String.format("Name: " + customerName));
+                lastName.setText(String.format("Last Name: " + customerLastName));
+                dob.setText(String.format("Date of Birth: " + customerDateOfBirth));
+                address.setText(String.format("Address: " + customerAddress));
 
                 if(permitRequired[0]) {
 
                     if (!customerPermit.equals("N/A")) {
-                        typeOfPermit.setText(String.format("Type de permis: " + customerPermit));
+                        typeOfPermit.setText(String.format("License type: " + customerPermit));
                     } else {
                         typeOfPermit.setTextColor(Color.RED);
-                        typeOfPermit.setText(String.format("Type de permis: NON SOUMIS"));
+                        typeOfPermit.setText(String.format("License type: NOT SUBMITTED"));
                     }
                 } else {
-                    typeOfPermit.setText(String.format("Type de permis: NON REQUIS"));
+                    typeOfPermit.setText(String.format("License type: NOT REQUIRED"));
                 }
 
                 if (proofOfResidenceRequired[0]) {
                     if (customerProofOfResidence) {
-                        proofOfResTxt.setText(String.format("Preuve de domicile: SOUMIS"));
+                        proofOfResTxt.setText(String.format("Proof of Residency: SUBMITTED"));
                     } else {
                         proofOfResTxt.setTextColor(Color.RED);
-                        proofOfResTxt.setText(String.format("Preuve de domicile: NON SOUMIS"));
+                        proofOfResTxt.setText(String.format("Proof of Residency: NOT SUBMITTED"));
                     }
                 } else {
-                    proofOfResTxt.setText(String.format("Preuve de domicile: NON REQUIS"));
+                    proofOfResTxt.setText(String.format("Proof of Residency: NOT REQUIRED"));
                 }
 
                 if (proofOfStatusRequired[0]) {
                     if (customerProofOfStatus) {
-                        proofOfStatusTxt.setText(String.format("Preuve de statut: SOUMIS"));
+                        proofOfStatusTxt.setText(String.format("Proof of Status: SUBMITTED"));
                     } else {
                         proofOfStatusTxt.setTextColor(Color.RED);
-                        proofOfStatusTxt.setText(String.format("Preuve de statut: NON SOUMIS"));
+                        proofOfStatusTxt.setText(String.format("Proof of Status: NOT SUBMITTED"));
                     }
                 } else {
-                    proofOfStatusTxt.setText(String.format("Preuve de statut: NON REQUIS"));
+                    proofOfStatusTxt.setText(String.format("Proof of Status: NOT REQUIRED"));
                 }
 
                 if (photoRequired[0]) {
                     if (customerPhoto) {
-                        photo.setText(String.format("Photo du client: SOUMIS"));
+                        photo.setText(String.format("Your photo: SUBMITTED"));
                     } else {
                         photo.setTextColor(Color.RED);
-                        photo.setText(String.format("Photo du client: NON SOUMIS"));
+                        photo.setText(String.format("Your photo: NOT SUBMITTED"));
                     }
                 } else {
-                    photo.setText(String.format("Photo du client: NON REQUIS"));
+                    photo.setText(String.format("Your photo: NOT REQUIRED"));
                 }
             }
 
@@ -225,7 +225,7 @@ public class ClientSubmittedRequests extends AppCompatActivity {
                 String actualRequestNumber = requestNumber.split("#")[1];
                 client.deleteRequest(actualRequestNumber);
 
-                Toast.makeText(ClientSubmittedRequests.this, "Demande supprimée",
+                Toast.makeText(ClientSubmittedRequests.this, "Request deleted",
                         Toast.LENGTH_SHORT).show();
 
                 dialog.dismiss();
